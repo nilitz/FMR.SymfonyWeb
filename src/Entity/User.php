@@ -52,7 +52,7 @@ class User implements UserInterface
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Skill::class, mappedBy="user")
+     * @ORM\ManyToMany(targetEntity=Skill::class, mappedBy="users")
      */
     private $skills;
 

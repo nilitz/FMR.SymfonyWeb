@@ -18,6 +18,8 @@
                     <li><p class="title">UTILISATEUR</p></li>
                     <li><a href="{{ path("home.index") }}">Home</a></li>
                     <div class="border-line"></div>
+                    <li><a href="#">FAQ</a></li>
+                    <div class="border-line"></div>
                     {% if app.user %}
                         <li><a href="#">Profil</a></li>
                         <li><a href="{{ path("security.logout") }}">Se Déconnecter</a></li>
@@ -28,8 +30,11 @@
                     <div class="border-line"></div>
                     <li><a href="#">Réserver une machine</a></li>
                     <li><a href="#">Réserver des outils</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <li><p class="title">ADMINISTRATION</p></li>
                     <li><a href="#">Gérer les utilisateurs</a></li>
+                    <div class="border-line"></div>
+                    <li><a href="#">Gérer la FAQ</a></li>
                     <div class="border-line"></div>
                     <li><a href="#">Gérer les machines</a></li>
                     <li><a href="#">Réservations de machines</a></li>
@@ -39,6 +44,7 @@
                     <div class="border-line"></div>
                     <li><a href="#">Gérer les produits</a></li>
                     <li><a href="#">Commandes de produits</a></li>
+                    {% endif %}
 
 
 
