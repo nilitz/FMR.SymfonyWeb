@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}FabManagerRenew{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
             <!-- CSS only -->
             <link rel="stylesheet" href="{{ asset('assets/css/sidebar.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -23,13 +25,15 @@
                     {% if app.user %}
                         <li><a href="#">Profil</a></li>
                         <li><a href="{{ path("security.logout") }}">Se Déconnecter</a></li>
+                        <div class="border-line"></div>
+                        <li><a href="#">Réserver une machine</a></li>
+                        <li><a href="#">Réserver des outils</a></li>
+                        <div class="border-line"></div>
+                        <li><a href="#">Produits</a></li>
                     {% else %}
                         <li><a href="{{ path("security.registration") }}">S'enregister</a></li>
                         <li><a href="{{ path("security.login") }}">Se Connecter</a></li>
                     {% endif %}
-                    <div class="border-line"></div>
-                    <li><a href="#">Réserver une machine</a></li>
-                    <li><a href="#">Réserver des outils</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                     <li><p class="title">ADMINISTRATION</p></li>
                     <li><a href="#">Gérer les utilisateurs</a></li>
