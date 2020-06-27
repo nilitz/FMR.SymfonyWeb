@@ -15,6 +15,7 @@
         <nav class="top-bar">
             <div class="sidebar">
                 <ul>
+                    <li><p class="title">UTILISATEUR</p></li>
                     <li><a href="{{ path("home.index") }}">Home</a></li>
                     <div class="border-line"></div>
                     {% if app.user %}
@@ -25,8 +26,22 @@
                         <li><a href="{{ path("security.login") }}">Se Connecter</a></li>
                     {% endif %}
                     <div class="border-line"></div>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Réserver une machine</a></li>
+                    <li><a href="#">Réserver des outils</a></li>
+                    <li><p class="title">ADMINISTRATION</p></li>
+                    <li><a href="#">Gérer les utilisateurs</a></li>
+                    <div class="border-line"></div>
+                    <li><a href="#">Gérer les machines</a></li>
+                    <li><a href="#">Réservations de machines</a></li>
+                    <div class="border-line"></div>
+                    <li><a href="#">Gérer l'inventaire</a></li>
+                    <li><a href="#">Réservation d'outils</a></li>
+                    <div class="border-line"></div>
+                    <li><a href="#">Gérer les produits</a></li>
+                    <li><a href="#">Commandes de produits</a></li>
+
+
+
                 </ul>
             </div>
             <div class="sidebar-btn">

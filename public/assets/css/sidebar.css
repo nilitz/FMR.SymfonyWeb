@@ -6,11 +6,11 @@
 
 .sidebar{
     background: #222222;
-    width: 200px;
+    width: 300px;
     height: 100%;
     display: block;
     position: absolute;
-    left: -200px;
+    left: -300px;
     top: 0;
     transition: left 0.3s linear;
 }
@@ -36,7 +36,7 @@ ul li a{
     background: #222222;
     color: #ccc;
     display: block;
-    width: 200px;
+    width: 300px;
     padding: 10px;
     text-decoration: none;
 }
@@ -44,7 +44,7 @@ ul li a{
 
 .border-line{
 
-    margin: 5px 20px 0 0;
+    margin: 5px 0px 0 0px;
     border-bottom: 2px solid darksalmon;
 
 }
@@ -52,6 +52,19 @@ ul li a{
 ul li a:hover{
     color: white;
     text-decoration: none;
+}
+
+.title{
+    background: #222222;
+    color: #ccc;
+    display: block;
+    width: 300px;
+    margin-top: 5px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 2px solid salmon;
+    font-weight: bold;
 }
 
 
@@ -71,11 +84,27 @@ ul li a:hover{
     background: bisque;
     margin-bottom: 5px;
     display: block;
+    transition: all 0.3s ease;
 }
-
+.sidebar-btn span:nth-child(2){
+    width: 100%;
+}
 .sidebar-btn span:nth-child(2){
     width: 75%;
 }
 .sidebar-btn span:nth-child(3){
     width: 50%;
+}
+
+.toggle span:nth-child(1){
+    transform: rotate(-45deg) translate(-5px,-1px);
+
+}
+.toggle span:nth-child(2){
+    display: none;
+}
+.toggle span:nth-child(3){
+    width: 100%;
+    transform: rotate(45deg) translate(-5px,1px);
+
 }

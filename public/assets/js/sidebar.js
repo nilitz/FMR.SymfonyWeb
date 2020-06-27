@@ -1,9 +1,9 @@
 function onSidebarButtonClick(){
 
     let sidebar = document.querySelector('div.sidebar')
+    let sidebar_btn = document.querySelector('div.sidebar-btn')
     sidebar.classList.toggle("visible")
-    console.log(sidebar.classList)
-
+    sidebar_btn.classList.toggle("toggle")
 }
 
 btn = document.querySelector('div.sidebar-btn')
