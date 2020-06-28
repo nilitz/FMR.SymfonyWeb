@@ -83,7 +83,7 @@
     top: -25px;
     height: 25px;
     padding: 0 15px;
-    background-color: salmon;
+    background-color: #529E99;
     color: #FFFFFF;
     font-size: 11px;
     line-height: 25px;
@@ -110,7 +110,7 @@
 
 
 .card-subtitle-fmr{
-    color: salmon;
+    color: #529E99;
     margin: 0;
     padding: 0 0 10px 0;
     font-size: 19px;

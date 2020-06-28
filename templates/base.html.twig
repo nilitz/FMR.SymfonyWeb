@@ -21,17 +21,17 @@
                 <ul>
                     <li><p class="title">UTILISATEUR</p></li>
                     <li><a href="{{ path("home.index") }}">Home</a></li>
-                    <div class="border-line"></div>
                     <li><a href="#">FAQ</a></li>
                     <div class="border-line"></div>
                     {% if app.user %}
+                        <li><a href="{{ path("products.index") }}">Produits</a></li>
+                        <div class="border-line"></div>
                         <li><a href="#">Profil</a></li>
                         <li><a href="{{ path("security.logout") }}">Se Déconnecter</a></li>
                         <div class="border-line"></div>
-                        <li><a href="#">Réserver une machine</a></li>
+                        <li><a href="{{ path("machine.index") }}">Réserver une machine</a></li>
                         <li><a href="#">Réserver des outils</a></li>
                         <div class="border-line"></div>
-                        <li><a href="{{ path("products.index") }}">Produits</a></li>
                     {% else %}
                         <li><a href="{{ path("security.registration") }}">S'enregister</a></li>
                         <li><a href="{{ path("security.login") }}">Se Connecter</a></li>
