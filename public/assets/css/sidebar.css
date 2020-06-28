@@ -19,7 +19,7 @@
 
 
 
-.sidebar.visible{
+.sidebar.sidebar-visible{
     left: 0;
     transition: left 0.3s linear;
 }
@@ -40,7 +40,7 @@ ul li a{
     display: block;
     width: 300px;
     padding: 10px;
-    text-decoration: none;
+    text-decoation: none;
 }
 
 
@@ -96,14 +96,14 @@ ul li a:hover{
     width: 50%;
 }
 
-.toggle span:nth-child(1){
+.btn-visible span:nth-child(1){
     transform: rotate(-45deg) translate(-5px,-1px);
 
 }
-.toggle span:nth-child(2){
+.btn-visible span:nth-child(2){
     display: none;
 }
-.toggle span:nth-child(3){
+.btn-visible span:nth-child(3){
     width: 100%;
     transform: rotate(45deg) translate(-5px,1px);
 
