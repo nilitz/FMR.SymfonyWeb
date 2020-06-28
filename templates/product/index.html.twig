@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+        <div class="grid-container">
+            <h1 class="display-4 text-center mt-5">Produits</h1>
+            <hr class="my-5">
+            <div class="grid">
+                {% include 'product/_product.html.twig' %}
+            </div>
+        </div>
+
+
+{% endblock %}
