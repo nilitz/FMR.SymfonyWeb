@@ -1,3 +1,6 @@
+.invisible{
+    display: none;
+}
 
 
 .top-bar{
@@ -7,6 +10,8 @@
 }
 
 .sidebar{
+
+    z-index: 2;
     background: #222222;
     width: 300px;
     height: 100%;
@@ -17,12 +22,12 @@
     transition: left 0.3s linear;
 }
 
-
-
 .sidebar.sidebar-visible{
     left: 0;
     transition: left 0.3s linear;
 }
+
+
 
 ul{
 
@@ -69,6 +74,8 @@ ul li a:hover{
 
 
 .sidebar-btn{
+
+    z-index: 3;
     display: inline-block;
     vertical-align: middle;
     width: 20px;
@@ -80,6 +87,7 @@ ul li a:hover{
 }
 
 .sidebar-btn span{
+
     height: 1px;
     background: bisque;
     margin-bottom: 5px;
@@ -108,3 +116,4 @@ ul li a:hover{
     transform: rotate(45deg) translate(-5px,1px);
 
 }
+

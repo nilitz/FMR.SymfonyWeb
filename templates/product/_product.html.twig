@@ -1,0 +1,25 @@
+{% for product in products %}
+    <article class="card-fmr">
+        <header class="card-img-fmr">
+            <img src="https://picsum.photos/370/235">
+        </header>
+        <div class="card-body-fmr">
+            <div class="card-number-fmr">
+                <span class="card-number-1-fmr">15</span>
+                <div class="white-line"></div>
+                <span class="card-number-2-fmr">50</span>
+            </div>
+            <div class="card-category-fmr"><a href="#">Category</a></div>
+            <div class="card-title-fmr">Title</div>
+            <div class="card-subtitle-fmr">Subtitle</div>
+            <p class="card-description-fmr">
+                Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée.
+            </p>
+        </div>
+        <footer class="card-footer-fmr btn-grid">
+            <a href="#"><i class="fas fa-eye"></i></a>
+            <a href="#"><i class="fas fa-edit"></i></a>
+            <a href="#"><i class="fas fa-trash"></i></a>
+        </footer>
+    </article>
+{% endfor %}
