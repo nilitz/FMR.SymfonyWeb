@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 
-class ProductController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+class ProductController extends AbstractController
 {
 
 }
