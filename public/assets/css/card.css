@@ -158,8 +158,15 @@
     transition: color 0.2s;
 }
 
-
-.card-footer-fmr a:hover{
-    color: salmon;
+.card-footer-fmr a.see-css:hover{
+    color: cornflowerblue;
+    text-decoration: none;
+}
+.card-footer-fmr a.edit-css:hover{
+    color: yellowgreen;
+    text-decoration: none;
+}
+.card-footer-fmr a.delete-css:hover{
+    color: red;
     text-decoration: none;
 }
