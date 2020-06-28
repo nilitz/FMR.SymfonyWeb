@@ -9,6 +9,8 @@
             <!-- CSS only -->
             <link rel="stylesheet" href="{{ asset('assets/css/sidebar.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/grid/grid-qhd.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/card.css') }}">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         {% endblock %}
     </head>
@@ -29,7 +31,7 @@
                         <li><a href="#">Réserver une machine</a></li>
                         <li><a href="#">Réserver des outils</a></li>
                         <div class="border-line"></div>
-                        <li><a href="#">Produits</a></li>
+                        <li><a href="{{ path("products.index") }}">Produits</a></li>
                     {% else %}
                         <li><a href="{{ path("security.registration") }}">S'enregister</a></li>
                         <li><a href="{{ path("security.login") }}">Se Connecter</a></li>
@@ -57,9 +59,11 @@
                 <span></span>
             </div>
         </nav>
+        <div class="page-content">
+            {% block body %}{% endblock %}
+        </div>
 
 
-        {% block body %}{% endblock %}
 
         {% block javascripts %}
             <!-- JS, Popper.js, and jQuery -->
