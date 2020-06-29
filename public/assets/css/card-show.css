@@ -17,21 +17,24 @@
     box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
 }
 
-.white-line{
-    margin: 0 25% 0 25%;
-    border-bottom: 1px solid white;
+.coral-line{
+    margin: 0 25% 20px 25%;
+    border-bottom: 1px solid coral;
 }
 
 .card-img-show{
-    background-color: #000;
-    height: 350px;
+    margin-top: 50px;
+    background-color: #FFFFFF;
     overflow: hidden;
+    height: 235px;
     transition: height 0.3s;
 }
 .card-img-show img{
+    height: 235px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
-    opacity: 1;
-    width: 100%;
     transition: opacity 0.3s;
 }
 
@@ -116,7 +119,7 @@
 
 .card-order-btn{
     background-color: inherit;
-    border: 0px;
+    border: 0;
     color: coral;
 }
 
@@ -129,16 +132,16 @@
 
 @media screen and (max-width: 680px) {
     .card-img-show{
-        height: 300px;
+        margin-top: 30px;
     }
     .card-container{
         margin: 0 15% 0 15%;
     }
 
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .card-img-show{
-        height: 250px;
+        margin-top: 20px;
     }
     .card-container{
         margin: 0 10% 0 10%;

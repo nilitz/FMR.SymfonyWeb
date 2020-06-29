@@ -5,19 +5,15 @@ div.page-content{
 .page-content{
     margin-top: 6rem;
     opacity: 1;
-    transform: scale(1);
 }
 
 .reduce{
     margin-top: 6rem;
     margin-left: 50px;
     opacity: 1;
-    transform: scale(1);
 
 }
 .bloom{
-    margin-left: 100px;
-    transform: scale(1.05);
     opacity: 0.5;
     filter: blur(4px);
 }
