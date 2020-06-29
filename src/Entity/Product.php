@@ -166,4 +166,9 @@ class Product
 
         return $this;
     }
+
+    public function returnClassName()
+    {
+        return "Produit";
+    }
 }

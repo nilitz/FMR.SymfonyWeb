@@ -19,37 +19,38 @@
         <nav class="top-bar">
             <div class="sidebar">
                 <ul>
-                    <li><p class="title">UTILISATEUR</p></li>
-                    <li><a href="{{ path("home.index") }}">Home</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><p class="title"><span class="sidebar-title">UTILISATEUR</span><span class="sidebar-icon"><i class="fas fa-user"></i></span></p></li>
+                    <div class="title-border-line"></div>
+                    <li><a href="{{ path("home.index") }}">Home<span class="sidebar-icon"><i class="fas fa-home"></i></span></a></li>
+                    <li><a href="#">FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
                     <div class="border-line"></div>
                     {% if app.user %}
-                        <li><a href="{{ path("products.index") }}">Produits</a></li>
+                        <li><a href="{{ path("products.index") }}">Produits<span class="sidebar-icon"><i class="fas fa-shopping-cart"></i></span></a></li>
                         <div class="border-line"></div>
-                        <li><a href="#">Profil</a></li>
-                        <li><a href="{{ path("security.logout") }}">Se Déconnecter</a></li>
+                        <li><a href="#">Profil<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
+                        <li><a href="{{ path("security.logout") }}">Se Déconnecter<span class="sidebar-icon"><i class="fas fa-user-slash"></i></span></a></li>
                         <div class="border-line"></div>
-                        <li><a href="{{ path("machine.index") }}">Réserver une machine</a></li>
-                        <li><a href="#">Réserver des outils</a></li>
-                        <div class="border-line"></div>
+                        <li><a href="{{ path("machine.index") }}">Réserver une machine<span class="sidebar-icon"><i class="fas fa-cogs"></i></span></a></li>
+                        <li><a href="#">Réserver des outils<span class="sidebar-icon"><i class="fas fa-tools"></i></span></a></li>
                     {% else %}
-                        <li><a href="{{ path("security.registration") }}">S'enregister</a></li>
-                        <li><a href="{{ path("security.login") }}">Se Connecter</a></li>
+                        <li><a href="{{ path("security.registration") }}">S'enregister<span class="sidebar-icon"><i class="fas fa-user-plus"></i></span></a></li>
+                        <li><a href="{{ path("security.login") }}">Se Connecter<span class="sidebar-icon"><i class="fas fa-user-check"></i></span></a></li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-                    <li><p class="title">ADMINISTRATION</p></li>
-                    <li><a href="#">Gérer les utilisateurs</a></li>
+                    <li><p class="title"><span class="sidebar-title">ADMINISTRATION</span><span class="sidebar-icon"><i class="fas fa-user-cog"></i></span></p></li>
+                    <div class="title-border-line"></div>
+                    <li><a href="#">Gérer les utilisateurs<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
                     <div class="border-line"></div>
-                    <li><a href="#">Gérer la FAQ</a></li>
+                    <li><a href="#">Gérer la FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
                     <div class="border-line"></div>
-                    <li><a href="#">Gérer les machines</a></li>
-                    <li><a href="#">Réservations de machines</a></li>
+                    <li><a href="#">Gérer les machines<span class="sidebar-icon"><i class="fas fa-cogs"></i></span></a></li>
+                    <li><a href="#">Réservations de machines<span class="sidebar-icon"><i class="fas fa-calendar"></i></span></a></li>
                     <div class="border-line"></div>
-                    <li><a href="#">Gérer l'inventaire</a></li>
-                    <li><a href="#">Réservation d'outils</a></li>
+                    <li><a href="#">Gérer l'inventaire<span class="sidebar-icon"><i class="fas fa-warehouse"></i></span></a></li>
+                    <li><a href="#">Réservation d'outils<span class="sidebar-icon"><i class="fas fa-calendar"></i></span></a></li>
                     <div class="border-line"></div>
-                    <li><a href="{{ path("admin.products.index") }}">Gérer les produits</a></li>
-                    <li><a href="#">Commandes de produits</a></li>
+                    <li><a href="{{ path("admin.products.index") }}">Gérer les produits<span class="sidebar-icon"><i class="fas fa-shopping-cart"></i></span></a></li>
+                    <li><a href="#">Commandes de produits<span class="sidebar-icon"><i class="fas fa-luggage-cart"></i></span></a></li>
                     {% endif %}
                 </ul>
             </div>

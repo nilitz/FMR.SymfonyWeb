@@ -5,16 +5,14 @@
         </header>
         <div class="card-body-fmr">
             <div class="card-number-fmr">
-                <span class="card-number-1-fmr">15</span>
+                <span class="card-number-1-fmr">{{ product.maxUser }}</span>
                 <div class="white-line"></div>
-                <span class="card-number-2-fmr">50</span>
+                <span class="card-number-2-fmr">{{ product.maxProduction }}</span>
             </div>
-            <div class="card-category-fmr"><a href="#">Category</a></div>
-            <div class="card-title-fmr">Title</div>
-            <div class="card-subtitle-fmr">Subtitle</div>
-            <p class="card-description-fmr">
-                Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée.
-            </p>
+            <div class="card-category-fmr"><a href="#">{{ product.returnClassName }}</a></div>
+            <div class="card-title-fmr">{{ product.name }}</div>
+            <div class="card-subtitle-fmr">{{ product.productionTime }}</div>
+            <p class="card-description-fmr">{{ product.description }}</p>
         </div>
         {% if is_granted('ROLE_ADMIN') %}
         <footer class="card-footer-fmr btn-grid">
