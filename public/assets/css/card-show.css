@@ -1,0 +1,148 @@
+{ box-sizing: border-box;}
+
+.card-container{
+    margin: 0 20% 0 20%;
+}
+
+.card-show{
+    margin: 15px;
+    overflow: hidden;
+    display: block;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s, height 0.3s;
+}
+
+.card-show:hover{
+    box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
+}
+
+.white-line{
+    margin: 0 25% 0 25%;
+    border-bottom: 1px solid white;
+}
+
+.card-img-show{
+    background-color: #000;
+    height: 350px;
+    overflow: hidden;
+    transition: height 0.3s;
+}
+.card-img-show img{
+    display: block;
+    opacity: 1;
+    width: 100%;
+    transition: opacity 0.3s;
+}
+
+
+.card-body-show{
+    position: relative;
+    padding: 20px;
+    height: 300px;
+    transition: height 0.3s;
+}
+
+
+
+
+.card-category-show{
+    position: absolute;
+    left: 0;
+    top: -25px;
+    height: 25px;
+    padding: 0 15px;
+    background-color: #529E99;
+    color: #FFFFFF;
+    font-size: 11px;
+    line-height: 25px;
+    text-transform: uppercase;
+}
+.card-category-show a{
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.card-category-show a:hover{
+    color: #DDDDDD;
+    text-decoration: none;
+}
+
+.card-title-show{
+    padding: 0 0 10px 0;
+    font-size: 25px;
+    color: #529E99;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.card-subtitle-show{
+    color: #529E99;
+    margin: 0;
+    padding: 0 0 10px 0;
+    font-size: 19px;
+}
+
+.card-description-show{
+    color: #666C74;
+    left: 20px;
+    right: 20px;
+    bottom: 70px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 27px;
+    opacity: 1;
+
+}
+
+.card-footer-show{
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    padding : 5px;
+    display: inline-block;
+    border-color : #000000;
+    color: inherit;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+.card-order-form{
+    margin: 0 25% 0 25%;
+}
+
+.card-order-btn{
+    background-color: inherit;
+    border: 0px;
+    color: coral;
+}
+
+.card-footer-show a.show-css{
+    color: coral;
+    bottom: 0;
+    position: absolute;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 680px) {
+    .card-img-show{
+        height: 300px;
+    }
+    .card-container{
+        margin: 0 15% 0 15%;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .card-img-show{
+        height: 250px;
+    }
+    .card-container{
+        margin: 0 10% 0 10%;
+    }
+
+}
+

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <a href="{{ path('products.index') }}"><i class="fas fa-chevron-circle-left"></i></a>
+    <div class="card-container">
+
+        <article class="card-show">
+            <div class="card-img-show">
+                <img src="{{ product.image }}">
+            </div>
+            <div class="card-body-show">
+                <div class="card-category-show"><a href="#">{{ product.returnClassName }}</a></div>
+                <h1 class="card-title-show">{{ product.name }}</h1>
+                <div class="card-subtitle-show">{{ product.maxUser }} unités / Utilisateur / {{ product.getPeriod }}</div>
+                <p class="card-description-show">{{ product.description }}</p>
+            </div>
+            <div class="card-footer-show text-center">
+                <h2 class="card-title-show">Commander</h2>
+                <div class="card-order-form">
+                    {{ form_start(form) }}
+                    {{ form_row(form.quantity) }}
+                    <button class="card-order-btn" style="width: 100%"><i class="fas fa-cart-arrow-down"></i></button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </article>
+
+
+    </div>
+
+
+
+
+{% endblock %}

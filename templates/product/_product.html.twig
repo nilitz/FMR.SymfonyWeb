@@ -1,7 +1,7 @@
 {% for product in products %}
     <article class="card-fmr">
         <header class="card-img-fmr">
-            <img src="https://picsum.photos/370/235">
+            <img src="{{ product.image }}">
         </header>
         <div class="card-body-fmr">
             <div class="card-number-fmr">
@@ -19,7 +19,7 @@
         {% else %}
         <footer class="card-footer-fmr text-center">
         {% endif %}
-            <a href="#" class="see-css"><i class="fas fa-eye"></i></a>
+            <a href="{{ path('products.show', {id: product.id}) }}" class="see-css"><i class="fas fa-eye"></i></a>
             {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('admin.products.edit', {id: product.id}) }}" class="edit-css"><i class="fas fa-edit"></i></a>
             <form id="form-product-delete" method="post" action="{{ path('admin.products.delete', {id: product.id}) }}" style="display: inline-block;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">

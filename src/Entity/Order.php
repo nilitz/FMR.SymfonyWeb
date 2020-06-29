@@ -24,7 +24,7 @@ class Order
     private $ordered_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $complete_at;
 
