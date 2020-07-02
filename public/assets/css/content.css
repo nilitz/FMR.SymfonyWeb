@@ -18,3 +18,20 @@ div.page-content{
     filter: blur(4px);
 }
 
+.page-back{
+
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.page-back a{
+    color: #529E99;
+    transition: color 0.3s;
+}
+
+.page-back a:hover{
+    color: coral;
+}
+
+

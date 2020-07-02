@@ -30,6 +30,8 @@ class ProductController extends AbstractController
      */
     private $orderRepository;
 
+    private $indentation = 0;
+
     /**
      * AdminProductController constructor.
      * @param ProductRepository $productRepository
@@ -70,23 +72,98 @@ class ProductController extends AbstractController
 
         $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        if ($form->isSubmitted() && $form->isValid())
+        $userProductOrder = $this->orderRepository->findAllByUserAndProductId($user->getId(), $product->getId());
+        $totalProductOrder = $this->orderRepository->findAllByProductId($product->getId());
+
+        $userProductOrder = $this->getWaitingOrder($userProductOrder, $product);
+        $totalProductOrder = $this->getWaitingOrder($totalProductOrder, $product);
+
+        if(($product->getMaxProduction() - $this->getActualOrder($totalProductOrder)) > $product->getMaxUser()){
+            $canOrder = $product->getMaxUser() - $this->getActualOrder($userProductOrder);
+        }else{
+            $canOrder = $product->getMaxProduction() - $this->getActualOrder($totalProductOrder) - $this->getActualOrder($userProductOrder);
+        }
+
+
+        if ($form->isSubmitted() && $form->isValid() && ($order->getQuantity() <= $canOrder ))
         {
             $order
                 ->setUser($user)
-                ->setCompleteAt(new \DateTime())
                 ->setOrderedAt(new \DateTime())
                 ->setIsDelivered(false)
+                ->setIsAccepted(false)
+                ->setIsComplete(false)
                 ->setProduct($product);
             $this->entityManager->persist($order);
             $this->entityManager->flush();
             $this->addFlash('success', 'Commande effectuée avec succès');
-            return $this->redirectToRoute('products.index');
+            return $this->redirectToRoute('products.show', [
+                'id' => $product->getId(),
+                'order' => $this->getActualOrder($userProductOrder),
+                'orderTotal' => $this->getActualOrder($totalProductOrder),
+                'canOrder' => $canOrder,
+                'product' => $product,
+                'form' => $form->createView()
+            ]);
         }
 
+
+
+
         return $this->render('product/show.html.twig', [
+            'order' => $this->getActualOrder($userProductOrder),
+            'orderTotal' => $this->getActualOrder($totalProductOrder),
+            'canOrder' => $canOrder,
             'product' => $product,
             'form' => $form->createView()
         ]);
     }
+
+    private function getActualOrder($array)
+    {
+        $count = 0;
+        foreach ($array as $k)
+        {
+            $count += $k->getQuantity();
+        }
+        return $count;
+    }
+
+    /**
+     * @param array $array
+     * @param $product
+     * @return array
+     */
+    private function getWaitingOrder($array, $product)
+    {
+        foreach ($array as $stat)
+        {
+            $actualDateTime = new \DateTime();
+            switch ($product->getPeriod())
+            {
+                case "Jour":
+                    if($actualDateTime->sub(new \DateInterval('P1D')) > $stat->getOrderedAt())
+                    {
+                        unset($array[$this->indentation]);
+                    }
+                    break;
+                case "Semaine":
+                    if($actualDateTime->sub(new \DateInterval('P7D')) > $stat->getOrderedAt())
+                    {
+                        unset($array[$this->indentation]);
+                    }
+                    break;
+                case "Mois":
+                    if($actualDateTime->sub(new \DateInterval('P1M')) > $stat->getOrderedAt())
+                    {
+                        unset($array[$this->indentation]);
+                    }
+                    break;
+            }
+            $this->indentation++;
+        }
+        $this->indentation = 0;
+        return $array;
+    }
+
 }

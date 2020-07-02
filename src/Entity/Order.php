@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\OrderRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
@@ -11,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Order
 {
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -24,11 +28,6 @@ class Order
     private $ordered_at;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $complete_at;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $is_delivered;
@@ -37,6 +36,7 @@ class Order
      * @ORM\Column(type="integer")
      */
     private $quantity;
+
 
     /**
      * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="orders")
@@ -49,6 +49,16 @@ class Order
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_accepted;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_complete;
 
     public function getId(): ?int
     {
@@ -63,18 +73,6 @@ class Order
     public function setOrderedAt(\DateTimeInterface $ordered_at): self
     {
         $this->ordered_at = $ordered_at;
-
-        return $this;
-    }
-
-    public function getCompleteAt(): ?\DateTimeInterface
-    {
-        return $this->complete_at;
-    }
-
-    public function setCompleteAt(\DateTimeInterface $complete_at): self
-    {
-        $this->complete_at = $complete_at;
 
         return $this;
     }
@@ -126,4 +124,36 @@ class Order
 
         return $this;
     }
+
+    public function orderedAtToString()
+    {
+        return $this->getOrderedAt()->format('H:i d-m-Y');
+    }
+
+    public function getIsAccepted(): ?bool
+    {
+        return $this->is_accepted;
+    }
+
+    public function setIsAccepted(bool $is_accepted): self
+    {
+        $this->is_accepted = $is_accepted;
+
+        return $this;
+    }
+
+    public function getIsComplete(): ?bool
+    {
+        return $this->is_complete;
+    }
+
+    public function setIsComplete(bool $is_complete): self
+    {
+        $this->is_complete = $is_complete;
+
+        return $this;
+    }
+
+
+
 }

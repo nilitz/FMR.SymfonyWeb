@@ -35,7 +35,11 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+
+}
+.card-show:hover .card-img-show img{
+    transform: scale(1.1);
 }
 
 
@@ -68,7 +72,7 @@
 }
 
 .card-category-show a:hover{
-    color: #DDDDDD;
+    color: lightcoral;
     text-decoration: none;
 }
 
@@ -123,6 +127,14 @@
     color: coral;
 }
 
+.card-order-text{
+    color: #666C74;
+}
+
+.card-order-number{
+    font-weight: bold;
+    color: #529E99;
+}
 .card-footer-show a.show-css{
     color: coral;
     bottom: 0;
@@ -135,7 +147,7 @@
         margin-top: 30px;
     }
     .card-container{
-        margin: 0 15% 0 15%;
+        margin: 0 5% 0 5%;
     }
 
 }
@@ -144,7 +156,7 @@
         margin-top: 20px;
     }
     .card-container{
-        margin: 0 10% 0 10%;
+        margin: 0 2% 0 2%;
     }
 
 }
