@@ -150,11 +150,26 @@
         margin: 0 10% 0 10%;
     }
 
+    .crud-status.user{
+        display: none;
+    }
+    .crud-action.user{
+        width: 20%;
+    }
+
 }
 @media screen and (max-width: 680px) {
 
     .crud-card-container{
         margin: 0 5% 0 5%;
+    }
+    .crud-title.user{
+
+        width: 10%;
+    }
+
+    .crud-action.user{
+        width: 30%;
     }
 
 }

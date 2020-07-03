@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="user-container">
+        <div class="user-infos">
+            <article class="card-show-user">
+                <div class="page-back">
+                    <a href="{{ path('admin.users.index') }}"><i class="fas fa-chevron-left"></i></a>
+                </div>
+                <div class="card-body-show-user">
+                    <div class="card-category-show" style="top: 30px">
+                        {{ user.category }}
+                    </div>
+                    <h1 class="card-title-show-user">INFORMATIONS</h1>
+                    <div class="coral-line"></div>
+                    <div class="card-subtitle-show-user" style="font-weight: bold;">Utilisateur n°{{ user.id }}</div>
+                    <div class="card-user-info">
+                        <span class="card-user-email">{{ user.email }}</span>   <span class="card-user-category">(
+                            {% if user.isAdmin == true %}
+                                Administrateur : Oui
+                            {% else %}
+                                Administrateur : Oui
+                            {% endif %}
+                             )</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="user-activities">
+            <div class="user-activities-products">
+                <article class="card-show-user">
+                    <div class="card-body-show-user">
+                        <h1 class="card-title-show-user">COMMANDES</h1>
+                        <div class="coral-line"></div>
+
+
+                        <div class="card-subtitle-show-user" style="font-weight: bold;">
+
+                        </div>
+                        <div class="card-content-show-user">
+
+                        </div>
+
+
+                    </div>
+                </article>
+            </div>
+            <div class="user-activities-machines">
+                <article class="card-show-user">
+                    <div class="card-body-show-user">
+                        <h1 class="card-title-show-user">RESERVATIONS DE MACHINES</h1>
+                        <div class="coral-line"></div>
+
+
+                        <div class="card-subtitle-show-user" style="font-weight: bold;">
+
+                        </div>
+                        <div class="card-content-show-user">
+
+                        </div>
+
+
+                    </div>
+                </article>
+            </div>
+            <div class="user-activities-tools">
+                <article class="card-show-user">
+                    <div class="card-body-show-user">
+                        <h1 class="card-title-show-user">RESERVATIONS D'OUTILS</h1>
+                        <div class="coral-line"></div>
+
+
+                        <div class="card-subtitle-show-user" style="font-weight: bold;">
+
+                        </div>
+                        <div class="card-content-show-user">
+
+                        </div>
+
+
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
