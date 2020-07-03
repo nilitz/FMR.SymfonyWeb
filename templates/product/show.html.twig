@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="card-container">
+        {% for message in app.flashes('success') %}
+
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+            <hr class="my-5">
+        {% endfor %}
+        <article class="card-show">
+            <div class="page-back">
+                <a href="{{ path('products.index') }}"><i class="fas fa-chevron-left"></i></a>
+            </div>
+            <div class="card-img-show">
+                <img src="{{ product.image }}">
+            </div>
+            <div class="card-body-show">
+                <div class="card-category-show"><a href="#">{{ product.returnClassName }}</a></div>
+                <h1 class="card-title-show">{{ product.name }}</h1>
+                <div class="coral-line"></div>
+                <div class="card-subtitle-show">{{ product.maxUser }} unités / Utilisateur / {{ product.getPeriod }}</div>
+                <p class="card-description-show">{{ product.description }}</p>
+            </div>
+            <div class="card-footer-show text-center">
+                <h2 class="card-title-show">Commander</h2>
+                <div class="coral-line"></div>
+                <p class="card-order-text">Vous avez déjà commandé <span class="card-order-number">{{ order }}</span> unités sur <span class="card-order-number">{{ product.maxUser }}</span></p>
+                <p class="card-order-text">Au total <span class="card-order-number">{{ orderTotal }}</span> unités ont été commandées pour un maximum de <span class="card-order-number">{{ product.maxProduction }}</span></p>
+                <p class="card-order-text">Vous pouvez donc commander au maximum <span class="card-order-number">{{ canOrder }}</span> unités</p>
+                {% if order < product.maxUser %}
+                <div class="card-order-form">
+                    {{ form_start(form) }}
+                    {{ form_row(form.quantity) }}
+                    <button class="card-order-btn" style="width: 100%"><i class="fas fa-cart-arrow-down"></i></button>
+                    {{ form_end(form) }}
+                </div>
+                {% endif %}
+            </div>
+        </article>
+
+
+    </div>
+
+
+
+
+{% endblock %}

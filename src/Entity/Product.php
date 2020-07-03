@@ -6,12 +6,23 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ *
+ * @UniqueEntity("name")
  */
 class Product
 {
+
+    const PERIOD = [
+        0 => 'Jour',
+        1 => 'Semaine',
+        2 => 'Mois'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -170,5 +181,19 @@ class Product
     public function returnClassName()
     {
         return "Produit";
+    }
+
+
+    public function getPeriod()
+    {
+        $periods = Product::PERIOD;
+        foreach ($periods as $k => $v)
+        {
+            if ($k == $this->getProductionTime())
+            {
+                return $v;
+            }
+        }
+        return 'Invalid Period';
     }
 }
