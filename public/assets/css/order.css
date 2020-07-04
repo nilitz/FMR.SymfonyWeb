@@ -1,0 +1,54 @@
+.card-user-email{
+    color: #529E99;
+    font-size: 15px;
+}
+.card-user-category{
+    color: #666C74;
+    font-size: 13px;
+}
+.card-detail{
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.card-detail-top{
+    display: block;
+    color: #529E99;
+    font-weight: bold;
+    width: 100%;
+    text-transform: uppercase;
+}
+.card-detail-body{
+    padding-top: 15px;
+    display: block;
+    width: 100%;
+}
+.card-detail-line{
+    width: 100%;
+    border-bottom: coral 1px solid;
+}
+.card-detail-product{
+    display: inline-block;
+    width: 30%;
+}
+
+.card-detail-product a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: coral;
+    transition: color 0.3s;
+}
+.card-detail-product a:hover{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #529E99;
+}
+.card-detail-quantity{
+    display: inline-block;
+    width: 10%;
+}
+.card-detail-date{
+    display: inline-block;
+    width: 55%;
+}

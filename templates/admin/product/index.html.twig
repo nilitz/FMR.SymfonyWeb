@@ -1,11 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<div class="container mt-4">
-    <h1 class="display-4">Produits</h1>
-    <div class="col-md-9">
-        <div class="row row-cols-1 row-cols-md-2">
+    <div class="crud-card-container">
+    <h1 class="display-4 text-center mt-5">Gestion des Produits</h1>
+    {% for message in app.flashes('success') %}
+        <hr class="my-5">
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <hr class="my-5">
+    <div class="text-right">
+        <a href="{{ path("admin.products.new") }}" class="btn btn-success" style="vertical-align: center">Ajouter un nouveau produit <i class="fas fa-plus"></i></a>
+    </div>
+    {% for product in products %}
+    <div class="crud-card">
+        <div CLASS="crud-img"><img src="{{ product.image }}"></div>
+        <div class="crud-title"><a href="{{ path('products.show', {id: product.id}) }}">{{ product.name }}</a></div>
+        <div class="crud-content"><p>{{ product.maxUser }} / {{ product.maxProduction }} / {{ product.getPeriod }}</p></div>
+        <div class="crud-status"></div>
+        <div class="crud-action">
+            <a href="{{ path('admin.products.edit', {id: product.id}) }}" class="crud-button crud-edit"><i class="fas fa-pen"></i></a>
+            <form method="post" action="{{ path('admin.products.delete', {id: product.id}) }}" style="display: inline-block;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                <button class="crud-button crud-delete"><i class="fas fa-trash"></i></button>
+            </form>
         </div>
     </div>
-
+    {% endfor %}
 </div>
 {% endblock %}

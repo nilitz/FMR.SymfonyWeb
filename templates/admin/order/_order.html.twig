@@ -1,0 +1,27 @@
+{% for order in orders %}
+    <article class="card-odr">
+        <header class="card-bck-odr">
+            {% if order.isAccepted == false %}
+                <div class="red"></div>
+            {% elseif order.isAccepted == true and order.isDelivered == false %}
+                <div class="yellow"></div>
+            {% elseif order.isAccepted == true and order.isDelivered == true %}
+                <div class="green"></div>
+            {% endif %}
+        </header>
+        <div class="card-body-odr">
+            <div class="card-number-odr">
+                <span class="card-number-odr">{{ order.quantity }}</span>
+            </div>
+            <div class="card-category-odr"><a href="#">{{ order.product.returnClassName }}</a></div>
+            <div class="card-title-odr">{{ order.product.name }}</div>
+            <div class="card-subtitle-odr">{{ order.product.productionTime }}</div>
+            <p class="card-description-odr">{{ order.product.description }}</p>
+        </div>
+
+        <footer class="card-footer-odr btn-grid">
+            <a href="{{ path('products.show', {id: order.product.id}) }}" class="see-css"><i class="fas fa-eye"></i></a>
+            <a href="{{ path('admin.products.edit', {id: order.product.id}) }}" class="edit-css"><i class="fas fa-edit"></i></a>
+        </footer>
+    </article>
+{% endfor %}

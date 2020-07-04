@@ -45,15 +45,20 @@
 }
 
 .card-img-fmr{
-    background-color: #000;
+    background-color: #000000;
     height: 235px;
+    width: auto;
     overflow: hidden;
     transition: height 0.3s;
 }
 .card-img-fmr img{
+    height: 235px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
-    opacity: 1;
     transition: opacity 0.3s, transform 0.3s;
+    opacity: 1;
     transform: scale(1);
 }
 
@@ -83,7 +88,7 @@
     top: -25px;
     height: 25px;
     padding: 0 15px;
-    background-color: salmon;
+    background-color: #529E99;
     color: #FFFFFF;
     font-size: 11px;
     line-height: 25px;
@@ -110,7 +115,7 @@
 
 
 .card-subtitle-fmr{
-    color: salmon;
+    color: #529E99;
     margin: 0;
     padding: 0 0 10px 0;
     font-size: 19px;
@@ -158,8 +163,15 @@
     transition: color 0.2s;
 }
 
-
-.card-footer-fmr a:hover{
-    color: salmon;
+.card-footer-fmr a.see-css:hover{
+    color: cornflowerblue;
+    text-decoration: none;
+}
+.card-footer-fmr a.edit-css:hover{
+    color: yellowgreen;
+    text-decoration: none;
+}
+.card-footer-fmr a.delete-css:hover{
+    color: red;
     text-decoration: none;
 }
