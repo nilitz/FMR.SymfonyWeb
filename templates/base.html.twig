@@ -26,7 +26,7 @@
                     <li><p class="title"><span class="sidebar-title">UTILISATEUR</span><span class="sidebar-icon"><i class="fas fa-user"></i></span></p></li>
                     <div class="title-border-line"></div>
                     <li><a href="{{ path("home.index") }}">Home<span class="sidebar-icon"><i class="fas fa-home"></i></span></a></li>
-                    <li><a href="#">FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
+                    <li><a href="{{ path("faq.index") }}">FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
                     <div class="border-line"></div>
                     {% if app.user %}
                         <li><a href="{{ path("products.index") }}">Produits<span class="sidebar-icon"><i class="fas fa-shopping-cart"></i></span></a></li>
