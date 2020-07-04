@@ -19,7 +19,7 @@
         "symfony/mime": "5.1.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "5.1.*",
-        "symfony/orm-pack": "*",
+        "symfony/orm-pack": "^1.0",
         "symfony/process": "5.1.*",
         "symfony/security-bundle": "5.1.*",
         "symfony/serializer-pack": "*",
@@ -30,7 +30,8 @@
         "symfony/validator": "5.1.*",
         "symfony/web-link": "5.1.*",
         "symfony/yaml": "5.1.*",
-        "vich/uploader-bundle": "^1.14"
+        "vich/uploader-bundle": "^1.14" ,
+      "ext-http": "*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
