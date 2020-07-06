@@ -15,6 +15,7 @@
             <link rel="stylesheet" href="{{ asset('assets/css/card-show.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/order.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/faq-card.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/user.css') }}">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         {% endblock %}
@@ -27,7 +28,7 @@
                     <li><p class="title"><span class="sidebar-title">UTILISATEUR</span><span class="sidebar-icon"><i class="fas fa-user"></i></span></p></li>
                     <div class="title-border-line"></div>
                     <li><a href="{{ path("home.index") }}">Home<span class="sidebar-icon"><i class="fas fa-home"></i></span></a></li>
-                    <li><a href="{{  path("faq.index") }}">FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
+                    <li><a href="{{ path("faq.index") }}">FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
                     <div class="border-line"></div>
                     {% if app.user %}
                         <li><a href="{{ path("products.index") }}">Produits<span class="sidebar-icon"><i class="fas fa-shopping-cart"></i></span></a></li>
@@ -46,7 +47,7 @@
                     <div class="title-border-line"></div>
                     <li><a href="{{ path('admin.users.index') }}">Gérer les utilisateurs<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
                     <div class="border-line"></div>
-                    <li><a href="#">Gérer la FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
+                    <li><a href="{{ path("admin.faq.index") }}">Gérer la FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
                     <div class="border-line"></div>
                     <li><a href="#">Gérer les machines<span class="sidebar-icon"><i class="fas fa-cogs"></i></span></a></li>
                     <li><a href="#">Réservations de machines<span class="sidebar-icon"><i class="fas fa-calendar"></i></span></a></li>

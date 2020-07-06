@@ -69,7 +69,7 @@ final class Version20200701114843 extends AbstractMigration
         $this->addSql('ALTER TABLE skill_user DROP FOREIGN KEY FK_CAD24AFBA76ED395');
         $this->addSql('DROP TABLE box');
         $this->addSql('DROP TABLE category');
-        $this->addSql('DROP TABLE faq');
+        $this->addSql('DROP TABLE questions');
         $this->addSql('DROP TABLE inventory');
         $this->addSql('DROP TABLE machine');
         $this->addSql('DROP TABLE `order`');
