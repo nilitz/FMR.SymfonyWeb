@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Repository\MachineRepository;
+use App\Repository\BookingRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,6 +44,15 @@ class MachineController extends AbstractController
         return $this->render('machine/machine.html.twig', [
             'machines' => $machine
         ]);
+    }
+
+    /**
+     * @Route("/machine/{id}", name="a", methods="GET|POST")
+     */
+    public function show()
+    {
+
+        return $this->render('machine/test.html.twig');
     }
 
 }

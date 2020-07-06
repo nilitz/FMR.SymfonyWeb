@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\FaqRepository;
+use App\Repository\QuestionsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=FaqRepository::class)
+ * @ORM\Entity(repositoryClass=QuestionsRepository::class)
  */
-class Faq
+class Questions
 {
     /**
      * @ORM\Id()

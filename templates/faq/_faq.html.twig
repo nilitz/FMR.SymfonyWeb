@@ -1,0 +1,10 @@
+{% for question in questions %}
+    <article class="faq-card-fmr">
+        <header class="faq-card-title-fmr">
+            {{ question.question }}
+        </header>
+        <div class="faq-card-body-fmr">
+            <p class="faq-card-description-fmr">{{ question.answer }}</p>
+        </div>
+    </article>
+{% endfor %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-3">{{ booking.machine.name }}</h1>
+            <hr class="my-5">
+        </div>
+    </div>
+
+        <div class="container text-center">
+            {% if booking.machine.isRentable %}
+                <h2 class="display-4"> La machine est disponible à la réservation</h2>
+            {% else %}
+                <h2 class="display-4"> La machine n'est pas disponible à la réservation</h2>
+            {% endif %}
+                <hr class="my-5">
+                <p class="my-5 lead text-center">
+                    La machine est réservé du {{ booking.beginAt |date("Y-m-d H:i:s")}}
+                    au {{ booking.endAt |date("Y-m-d H:i:s")}}
+                </p>
+        </div>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h2 class="display-4">Réservation</h2>
+            <hr class="my-5">
+            <a href="booking.new" class="my-5 lead text-center">Créer une nouvelle réservation</a>
+        </div>
+    </div>
+            <div class="container text-center">
+            <h2 class="display-4">Contact</h2>
+            <hr class="my-5">
+            <p class="my-5 lead text-justify">
+                Voici l'emplacement du futur formulaire de contact
+            </p>
+        </div>
+
+{% endblock %}
