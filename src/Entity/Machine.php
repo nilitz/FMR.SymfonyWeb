@@ -25,6 +25,11 @@ class Machine
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $color;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $image;
@@ -68,6 +73,18 @@ class Machine
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): self
+    {
+        $this->name = $color;
 
         return $this;
     }
@@ -149,5 +166,10 @@ class Machine
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
