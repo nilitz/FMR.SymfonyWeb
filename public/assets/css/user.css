@@ -46,7 +46,7 @@
 }
 
 .card-show-user:hover{
-    box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.3);
 }
 
 .coral-line{
@@ -59,6 +59,25 @@
     padding: 20px;
     transition: height 0.3s;
 }
+
+.user-skills{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+.user-skills .user-skill{
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #529E99;
+    color: white;
+    font-weight: bold;
+}
+
 
 .card-title-show-user{
     padding: 0 0 10px 0;
@@ -75,3 +94,37 @@
     padding: 0 0 10px 0;
     font-size: 19px;
 }
+
+@media screen and (max-width: 1300px) {
+    .card-title-show-user.info{
+        padding-top: 50px;
+    }
+
+}
+@media screen and (max-width: 900px) {
+    .card-show-user{
+    }
+    .user-infos{
+        margin-left: 0;
+        width: 100%;
+        display: block
+    }
+
+    .user-activities{
+        width: 100%;
+        display: block;
+    }
+
+    .order.crud-content.show{
+        width: 15%;
+    }
+
+    .order.crud-status.show{
+        width: 40%;
+    }
+
+    .crud-action.show{
+        width: 15%;
+    }
+}
+

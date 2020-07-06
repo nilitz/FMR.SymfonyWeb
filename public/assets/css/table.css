@@ -102,6 +102,25 @@
     color: coral;
 }
 
+.status-1-user{
+    color: firebrick;
+    font-weight: bold;
+}
+.status-2-user{
+    color: orangered;
+    font-weight: bold;
+}
+.status-3-user{
+    color: orange;
+    font-weight: bold;
+}
+.status-4-user{
+    color: green;
+    font-weight: bold;
+}
+
+
+
 .crud-action{
     width: 10%;
     display: inline-block;

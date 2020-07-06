@@ -32,7 +32,7 @@
                     {% if app.user %}
                         <li><a href="{{ path("products.index") }}">Produits<span class="sidebar-icon"><i class="fas fa-shopping-cart"></i></span></a></li>
                         <div class="border-line"></div>
-                        <li><a href="#">Profil<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
+                        <li><a href="{{ path("users.show", {id: app.user.id}) }}">Profil<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
                         <li><a href="{{ path("security.logout") }}">Se Déconnecter<span class="sidebar-icon"><i class="fas fa-user-slash"></i></span></a></li>
                         <div class="border-line"></div>
                         <li><a href="{{ path("machine.index") }}">Réserver une machine<span class="sidebar-icon"><i class="fas fa-cogs"></i></span></a></li>

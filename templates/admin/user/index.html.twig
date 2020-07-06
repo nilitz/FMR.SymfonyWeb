@@ -19,12 +19,7 @@
                 <div class="crud-status user"></div>
                 <div class="crud-action user">
                     <a href="{{ path('admin.users.show', {id: user.id}) }}" class="crud-button crud-show"><i class="fas fa-eye"></i></a>
-                    <a href="#" class="crud-button crud-edit"><i class="fas fa-pen"></i></a>
-                    <form method="post" action="#" style="display: inline-block;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
-                        <button class="crud-button crud-delete"><i class="fas fa-trash"></i></button>
-                    </form>
+
                 </div>
             </div>
         {% endfor %}

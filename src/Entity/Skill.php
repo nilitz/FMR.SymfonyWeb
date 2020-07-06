@@ -25,7 +25,7 @@ class Skill
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="skills")
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="skills")
      */
     private $users;
 
@@ -112,5 +112,10 @@ class Skill
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

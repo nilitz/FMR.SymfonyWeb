@@ -4,9 +4,6 @@
 
         <div class="user-infos">
             <article class="card-show-user">
-                <div class="page-back">
-                    <a href="{{ path('admin.users.index') }}"><i class="fas fa-chevron-left"></i></a>
-                </div>
                 <div class="card-body-show-user">
                     <div class="card-category-show user" style="top: 30px">
                         {{ user.category }}
@@ -48,11 +45,6 @@
                     {{ form_widget(form) }}
                     <button class="btn btn-success" style="width: 100%"><i class="fas fa-edit"></i></button>
                     {{ form_end(form) }}
-                    <form method="post" action="{{ path('admin.users.delete', {id: user.id}) }}" style="display: inline-block; width: 100%;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
-                        <button class="btn btn-danger mt-1" style=" width: 100%;"><i class="fas fa-trash"></i></button>
-                    </form>
                 </div>
             </article>
         </div>
@@ -69,17 +61,17 @@
                                 <div CLASS="crud-img"><img src="{{ order.product.image }}"></div>
                                 <div class="crud-title"><a href="{{ path('products.show', {id: order.product.id}) }}">{{ order.product.name }}</a></div>
                                 <div class="order crud-content show"><p>{{ order.quantity }}</p></div>
-                                <div class="order crud-status show"><a href="{{ path('admin.orders.next', {id: order.id}) }}"
-                                            {% if order.isAccepted == false %}
-                                                                  class="crud-status-button status-1">
+                                <div class="order crud-status show text-center">
+                                        {% if order.isAccepted == false %}
+                                            <p class="status-1-user">EN ATTENTE D'ACCEPTATION</p>
                                         {% elseif order.isAccepted == true and order.isComplete == false %}
-                                            class="crud-status-button status-2">
+                                            <p class="status-2-user">EN PRODUCTION</p>
                                         {% elseif order.isComplete == true and order.isDelivered == false %}
-                                            class="crud-status-button status-3">
+                                            <p class="status-3-user">EN ATTENTE DE LIVRAISON</p>
                                         {% else %}
-                                            class="crud-status-button status-4">
+                                            <p class="status-4-user">LIVREE</p>
                                         {% endif %}
-                                        <i class="fas fa-stop status-icon-1"></i> - <i class="fas fa-wrench status-icon-2"></i> - <i class="fas fa-check status-icon-3"></i> - <i class="fas fa-truck status-icon-4"></i></a>
+
                                 </div>
                                 <div class="crud-action show">
                                     <a href="{{ path('admin.orders.show', {id: order.id}) }}" class="crud-button crud-show"><i class="fas fa-eye"></i></a>
