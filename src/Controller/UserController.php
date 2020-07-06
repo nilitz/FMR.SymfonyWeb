@@ -1,20 +1,20 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller;
 
 
 use App\Entity\User;
 use App\Form\UserEditType;
+use App\Form\UserUserEditType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminUserController extends AbstractController
+class UserController extends AbstractController
 {
     /**
      * @var UserRepository
@@ -32,55 +32,27 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateurs", name="admin.users.index")
-     */
-    public function index()
-    {
-        $users = $this->userRepository->findAll();
-        return $this->render('admin/user/index.html.twig', [
-            'users' => $users
-        ]);
-    }
-
-    /**
-     * @Route("/admin/utilisateurs/{id}", name="admin.users.show")
+     * @Route("/utilisateurs/{id}", name="users.show")
      * @param User $user
      * @param Request $request
      * @return Response
      */
     public function show(User $user, Request $request)
     {
-        $form = $this->createForm(UserEditType::class, $user);
+        $form = $this->createForm(UserUserEditType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
             $this->entityManager->flush();
             $this->addFlash('success', 'Utilisateur édité avec succès');
-            return $this->redirectToRoute('admin.users.show', [
+            return $this->redirectToRoute('users.show', [
                 'id' => $user->getId()
             ]);
         }
-        return $this->render('admin/user/show.html.twig', [
+        return $this->render('user/show.html.twig', [
             'user' => $user,
             'form' => $form->createView()
         ]);
-    }
-
-    /**
-     * @Route("/admin/users/{id}", name="admin.users.delete")
-     * @param User $user
-     * @param Request $request
-     * @return RedirectResponse
-     */
-    public function delete(User $user, Request $request)
-    {
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->get('_token')))
-        {
-            $this->entityManager->remove($user);
-            $this->entityManager->flush();
-            $this->addFlash('success', 'Utilisateur supprimé avec succès');
-        }
-        return $this->redirectToRoute('admin.users.index');
     }
 }

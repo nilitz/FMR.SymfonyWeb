@@ -22,9 +22,15 @@
 <div class="jumbotron">
     <div class="container text-center">
         <h2 class="display-4">Contact</h2>
+        {% for message in app.flashes('success') %}
+            <hr class="my-5">
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
         <hr class="my-5">
 
-        <div id="js-contact-form">
+        <div>
             {{ form_start(form) }}
 
             {{ form_row(form.title) }}
