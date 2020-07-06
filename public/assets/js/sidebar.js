@@ -3,6 +3,7 @@ function onSidebarButtonClick(){
     let sidebar = document.querySelector('div.sidebar')
     let sidebar_btn = document.querySelector('div.sidebar-btn')
     let page_content = document.querySelector('div.page-content')
+
     if (sidebar.classList.contains("sidebar-partially-visible"))
     {
         sidebar.classList.toggle("sidebar-partially-visible")

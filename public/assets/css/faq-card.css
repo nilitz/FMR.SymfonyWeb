@@ -7,11 +7,13 @@
     display: block;
     background-color: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s;
+    border-radius: 5px;
+
 }
 
 .faq-card-fmr:hover{
-    box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
 }
 
 .white-line{
@@ -23,11 +25,11 @@
     position: relative;
     padding: 10px;
     height: 10px;
-    transition: height 0.3s;
+    transition: all 0.3s;
 }
 
 .faq-card-fmr:hover .faq-card-body-fmr{
-    height: auto;
+    height: 100px;
 }
 
 .faq-card-title-fmr{
@@ -45,7 +47,7 @@
     font-size: 14px;
     line-height: 27px;
     opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
+    transition: all 0.3s;
     transform: translateY(25px);
     transition-delay: 0s;
 }
