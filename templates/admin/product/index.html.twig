@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<div class="container mt-4">
+    <div class="crud-card-container">
     <h1 class="display-4 text-center mt-5">Gestion des Produits</h1>
     {% for message in app.flashes('success') %}
         <hr class="my-5">
@@ -9,39 +9,24 @@
         </div>
     {% endfor %}
     <hr class="my-5">
-    <div class="text-center">
-        <a href="{{ path("admin.products.new") }}" class="btn btn-success mb-5" style="vertical-align: center"><i class="fas fa-plus"></i></a>
-        <a href="#" class="btn btn-warning mb-5" style="vertical-align: center"><i class="fas fa-download"></i></a>
+    <div class="text-right">
+        <a href="{{ path("admin.products.new") }}" class="btn btn-success" style="vertical-align: center">Ajouter un nouveau produit <i class="fas fa-plus"></i></a>
     </div>
-    <table class="table table-striped text-center">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prod. max. total.</th>
-            <th>Prod. max. indiv.</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for product in products %}
-            <tr>
-                <td>{{ product.name }}</td>
-                <td>{{ product.maxProduction }}</td>
-                <td>{{ product.maxUser }}</td>
-                <td>
-                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                    <a href="{{ path('admin.products.edit', {id: product.id}) }}" class="btn btn-dark"><i class="fas fa-edit"></i></a>
-                    <form method="post" action="{{ path('admin.products.delete', {id: product.id}) }}" style="display: inline-block;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
-                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                    </form>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-
-    </table>
-
+    {% for product in products %}
+    <div class="crud-card">
+        <div CLASS="crud-img"><img src="{{ product.image }}"></div>
+        <div class="crud-title"><a href="{{ path('products.show', {id: product.id}) }}">{{ product.name }}</a></div>
+        <div class="crud-content"><p>{{ product.maxUser }} / {{ product.maxProduction }} / {{ product.getPeriod }}</p></div>
+        <div class="crud-status"></div>
+        <div class="crud-action">
+            <a href="{{ path('admin.products.edit', {id: product.id}) }}" class="crud-button crud-edit"><i class="fas fa-pen"></i></a>
+            <form method="post" action="{{ path('admin.products.delete', {id: product.id}) }}" style="display: inline-block;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                <button class="crud-button crud-delete"><i class="fas fa-trash"></i></button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}

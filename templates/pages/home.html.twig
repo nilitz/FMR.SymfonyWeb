@@ -11,21 +11,46 @@
         </p>
     </div>
 </div>
+<div class="container text-center">
+    <h2 class="display-4">Technologies</h2>
+    <hr class="my-5">
+    <p class="my-5 lead text-justify">
+        FabManager devait être initialement développé en utilisant Ruby-On-Rails et Angular.js, toutefois, il a finalement été développé en utilisant Symfony, ainsi différents outils ont été utilisés
+        tels que PhpStorm, Wamp et HeidiSQL, et JMerise.
+    </p>
+</div>
+<div class="jumbotron">
     <div class="container text-center">
-        <h2 class="display-4">Technologies</h2>
-        <hr class="my-5">
-        <p class="my-5 lead text-justify">
-            FabManager devait être initialement développé en utilisant Ruby-On-Rails et Angular.js, toutefois, il a finalement été développé en utilisant Symfony, ainsi différents outils ont été utilisés
-            tels que PhpStorm, Wamp et HeidiSQL, et JMerise.
-        </p>
-    </div>
-    <div class="jumbotron">
-        <div class="container text-center">
-            <h2 class="display-4">Contact</h2>
+        <h2 class="display-4">Contact</h2>
+        {% for message in app.flashes('success') %}
             <hr class="my-5">
-            <p class="my-5 lead text-justify">
-                Voici l'emplacement du futur formulaire de contact
-            </p>
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <hr class="my-5">
+
+        <div>
+            {{ form_start(form) }}
+
+            {{ form_row(form.title) }}
+            <div class="row">
+
+                <div class="col-md-6">
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.lastName) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.phone) }}
+                    {{ form_row(form.email) }}
+                </div>
+            </div>
+            {{ form_row(form.message) }}
+            <div class="form-group">
+                <button class="btn btn-dark text-right"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            {{ form_end(form) }}
         </div>
+    </div>
     </div>
 {% endblock %}

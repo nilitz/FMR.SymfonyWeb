@@ -29,13 +29,15 @@
         "symfony/security-bundle": "5.1.*",
         "symfony/serializer-pack": "*",
         "symfony/string": "5.1.*",
+        "symfony/swiftmailer-bundle": "^3.4",
         "symfony/translation": "5.1.*",
         "symfony/twig-pack": "*",
         "symfony/validator": "5.1.*",
         "symfony/web-link": "5.1.*",
         "symfony/yaml": "5.1.*",
         "tattali/calendar-bundle": "^1.2",
-        "vich/uploader-bundle": "^1.14"
+        "vich/uploader-bundle": "^1.14" ,
+      "ext-http": "*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

@@ -1,0 +1,209 @@
+
+.crud-card-container{
+    margin: 0 20% 0 20%;
+}
+
+.crud-card{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s;
+}
+
+.crud-card:hover{
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
+}
+
+.crud-img{
+    width: 10%;
+    display: inline-block;
+    border-right: #cccccc 1px solid;
+}
+.crud-img img{
+    width: 100%;
+    padding-right: 5px;
+}
+
+.crud-title{
+
+    width: 25%;
+    padding: 10px;
+    display: inline-block;
+}
+
+
+.crud-title a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #222222;
+    transition: color 0.3s;
+}
+
+.crud-title a:hover{
+    text-decoration: none;
+    color: #529E99;
+}
+
+.crud-content{
+    width: 40%;
+    display: inline-block;
+
+}
+
+.crud-content p {
+    color: #666C74;
+    font-size: 12px;
+}
+
+
+.crud-status{
+    width: 10%;
+    display: inline-block;
+
+}
+
+.order.crud-content{
+    width: 20%;
+    display: inline-block;
+
+}
+
+.order.crud-status {
+    width: 30%;
+    display: inline-block;
+}
+.crud-status-button{
+    padding: 8px;
+    text-decoration: none;
+    color: #222222;
+    border-bottom: #cccccc 1px solid;
+    transition: all 0.6s;
+}
+
+.crud-status-button:hover{
+    text-decoration: none;
+    border-bottom: coral 1px solid;
+    color: #222222;
+}
+
+.status-1 .status-icon-1{
+    color: coral;
+}
+.status-2 .status-icon-2{
+    color: coral;
+}
+.status-3 .status-icon-3{
+    color: coral;
+}
+.status-4 .status-icon-4{
+    color: coral;
+}
+
+.status-1-user{
+    color: firebrick;
+    font-weight: bold;
+}
+.status-2-user{
+    color: orangered;
+    font-weight: bold;
+}
+.status-3-user{
+    color: orange;
+    font-weight: bold;
+}
+.status-4-user{
+    color: green;
+    font-weight: bold;
+}
+
+
+
+.crud-action{
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+}
+
+.crud-button{
+    padding: 5px;
+
+}
+
+.crud-edit{
+    color: #529E99;
+}
+
+.crud-delete{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #222222;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.crud-show{
+    color: coral;
+}
+
+.crud-show:hover{
+    color: coral;
+}
+
+.crud-edit:hover{
+    color: #529E99;
+}
+
+.crud-delete:hover{
+    color: #222222;
+}
+@media screen and (max-width: 1300px) {
+
+    .crud-card-container{
+        margin: 0 10% 0 10%;
+    }
+
+    .crud-status.user{
+        display: none;
+    }
+    .crud-action.user{
+        width: 20%;
+    }
+
+}
+@media screen and (max-width: 680px) {
+
+    .crud-card-container{
+        margin: 0 5% 0 5%;
+    }
+    .crud-title.user{
+
+        width: 10%;
+    }
+
+    .crud-action.user{
+        width: 30%;
+    }
+
+}
+@media screen and (max-width: 550px) {
+
+    .crud-card-container{
+        margin: 0 2% 0 2%;
+    }
+    .crud-img{
+        display: none;
+    }
+    .crud-status{
+        display: none;
+    }
+    .crud-content{
+        width: 55%;
+    }
+}

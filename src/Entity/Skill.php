@@ -25,7 +25,7 @@ class Skill
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="skills")
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="skills")
      */
     private $users;
 

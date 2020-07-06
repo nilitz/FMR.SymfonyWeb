@@ -1,0 +1,36 @@
+div.page-content{
+    transition: margin-left 0.6s, opacity 0.6s, transform 0.6s, filter 0.6s;
+}
+
+.page-content{
+    margin-top: 4rem;
+    opacity: 1;
+}
+
+.reduce{
+    margin-left: 50px;
+    opacity: 1;
+
+}
+.bloom{
+    opacity: 0.5;
+    filter: blur(4px);
+}
+
+.page-back{
+
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.page-back a{
+    color: #529E99;
+    transition: color 0.3s;
+}
+
+.page-back a:hover{
+    color: coral;
+}
+
+
