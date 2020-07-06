@@ -16,6 +16,7 @@ class MachineType extends AbstractType
             ->add('image')
             ->add('is_rentable')
             ->add('max_hours_per_use')
+            ->add('color')
             ->add('skill')
         ;
     }

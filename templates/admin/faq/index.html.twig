@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
+    <hr class="mt-5">
     <div class="crud-card-container">
     <h1 class="display-4 text-center mt-5">Gestion de la FAQ</h1>
     {% for message in app.flashes('success') %}
@@ -10,11 +12,11 @@
     {% endfor %}
     <hr class="my-5">
     <div class="text-right">
-        <a href="{{ path("admin.faq.new") }}" class="btn btn-success" style="vertical-align: center">Ajouter un nouveau post <i class="fas fa-plus"></i></a>
+        <a href="{{ path("admin.faq.new") }}" class="btn btn-success" style="vertical-align: center">Ajouter une nouvelle Question <i class="fas fa-plus"></i></a>
     </div>
     {% for question in questions %}
     <div class="crud-card">
-        <div class="crud-title"><a href="{{ question.id }}">{{ question.question }}</a></div>
+        <div class="crud-title">{{ question.id }}</div>
         <div class="crud-content"><p>{{ question.answer }}</p></div>
         <div class="crud-status"></div>
         <div class="crud-action">

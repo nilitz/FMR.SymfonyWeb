@@ -144,6 +144,10 @@
     text-decoration: none;
 }
 
+.card-footer-show a.show-css:hover{
+    color: #529E99;
+}
+
 @media screen and (max-width: 680px) {
     .card-img-show{
         margin-top: 30px;
