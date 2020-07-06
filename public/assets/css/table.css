@@ -134,6 +134,7 @@
 
 .crud-edit{
     color: #529E99;
+    transition: all 0.3s;
 }
 
 .crud-delete{
@@ -146,23 +147,27 @@
     color: #222222;
     text-decoration: underline;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .crud-show{
     color: coral;
+    transition: all 0.3s;
 }
 
 .crud-show:hover{
-    color: coral;
-}
-
-.crud-edit:hover{
     color: #529E99;
 }
 
-.crud-delete:hover{
-    color: #222222;
+.crud-edit:hover{
+    color: coral;
 }
+
+.crud-delete:hover{
+    color: coral;
+}
+
+
 @media screen and (max-width: 1300px) {
 
     .crud-card-container{

@@ -13,11 +13,6 @@ class Event
     /**
      * @var string
      */
-    protected $machine;
-
-    /**
-     * @var string
-     */
     protected $title;
 
     /**
@@ -41,27 +36,15 @@ class Event
     protected $options = [];
 
     public function __construct(
-        string $machine,
         string $title,
         DateTimeInterface $start,
         ?DateTimeInterface $end = null,
         array $options = []
     ) {
-        $this->setMachine($machine);
         $this->setTitle($title);
         $this->setStart($start);
         $this->setEnd($end);
         $this->setOptions($options);
-    }
-
-    public function getMachine(): ?string
-    {
-        return $this->machine;
-    }
-
-    public function setMachine(string $machine): void
-    {
-        $this->machine = $machine;
     }
 
     public function getTitle(): ?string
@@ -153,7 +136,7 @@ class Event
     public function toArray(): array
     {
         $event = [
-            'title' => $this->getMachine(),
+            'title' => $this->getTitle(),
             'start' => $this->getStart()->format(self::DATE_FORMAT),
             'allDay' => $this->isAllDay(),
         ];
