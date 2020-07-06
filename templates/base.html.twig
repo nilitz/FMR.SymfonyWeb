@@ -15,6 +15,7 @@
             <link rel="stylesheet" href="{{ asset('assets/css/card-show.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/order.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/user.css') }}">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         {% endblock %}
     </head>
@@ -31,7 +32,7 @@
                     {% if app.user %}
                         <li><a href="{{ path("products.index") }}">Produits<span class="sidebar-icon"><i class="fas fa-shopping-cart"></i></span></a></li>
                         <div class="border-line"></div>
-                        <li><a href="#">Profil<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
+                        <li><a href="{{ path("users.show", {id: app.user.id}) }}">Profil<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
                         <li><a href="{{ path("security.logout") }}">Se Déconnecter<span class="sidebar-icon"><i class="fas fa-user-slash"></i></span></a></li>
                         <div class="border-line"></div>
                         <li><a href="{{ path("machine.index") }}">Réserver une machine<span class="sidebar-icon"><i class="fas fa-cogs"></i></span></a></li>
@@ -43,7 +44,7 @@
                     {% if is_granted('ROLE_ADMIN') %}
                     <li><p class="title"><span class="sidebar-title">ADMINISTRATION</span><span class="sidebar-icon"><i class="fas fa-user-cog"></i></span></p></li>
                     <div class="title-border-line"></div>
-                    <li><a href="#">Gérer les utilisateurs<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
+                    <li><a href="{{ path('admin.users.index') }}">Gérer les utilisateurs<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
                     <div class="border-line"></div>
                     <li><a href="#">Gérer la FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
                     <div class="border-line"></div>

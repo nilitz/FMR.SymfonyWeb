@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="user-container">
+
+        <div class="user-infos">
+            <article class="card-show-user">
+                <div class="card-body-show-user">
+                    <div class="card-category-show user" style="top: 30px">
+                        {{ user.category }}
+                    </div>
+                    <h1 class="card-title-show-user info">INFORMATIONS</h1>
+                    <div class="coral-line"></div>
+                    <div class="card-subtitle-show-user" style="font-weight: bold;">Utilisateur n°{{ user.id }} : {{ user.username }}</div>
+                    <div class="card-user-info">
+                        <span class="card-user-email">{{ user.email }}</span>   <span class="card-user-category">(
+                            {% if user.isAdmin == true %}
+                                Administrateur : Oui
+                            {% else %}
+                                Administrateur : Non
+                            {% endif %}
+                             )</span>
+                    </div>
+                    <h2 class="card-title-show-user info mt-4">COMPETENCES</h2>
+                    <div class="coral-line"></div>
+                    <div class="user-skills">
+                        {% for skill in user.skills %}
+                            <div class="user-skill">
+                                {{ skill }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+            <article class="card-show-user">
+                <div class="card-body-show-user">
+                    <h2 class="card-title-show-user info mt-3">EDITER</h2>
+                    {% for message in app.flashes('success') %}
+                        <hr class="coral-line">
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    <div class="coral-line"></div>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button class="btn btn-success" style="width: 100%"><i class="fas fa-edit"></i></button>
+                    {{ form_end(form) }}
+                </div>
+            </article>
+        </div>
+
+        <div class="user-activities">
+            <div class="user-activities-products">
+                <article class="card-show-user">
+                    <div class="card-body-show-user">
+                        <h1 class="card-title-show-user">COMMANDES</h1>
+                        <div class="coral-line"></div>
+
+                        {% for order in user.orders %}
+                            <div class="crud-card">
+                                <div CLASS="crud-img"><img src="{{ order.product.image }}"></div>
+                                <div class="crud-title"><a href="{{ path('products.show', {id: order.product.id}) }}">{{ order.product.name }}</a></div>
+                                <div class="order crud-content show"><p>{{ order.quantity }}</p></div>
+                                <div class="order crud-status show text-center">
+                                        {% if order.isAccepted == false %}
+                                            <p class="status-1-user">EN ATTENTE D'ACCEPTATION</p>
+                                        {% elseif order.isAccepted == true and order.isComplete == false %}
+                                            <p class="status-2-user">EN PRODUCTION</p>
+                                        {% elseif order.isComplete == true and order.isDelivered == false %}
+                                            <p class="status-3-user">EN ATTENTE DE LIVRAISON</p>
+                                        {% else %}
+                                            <p class="status-4-user">LIVREE</p>
+                                        {% endif %}
+
+                                </div>
+                                <div class="crud-action show">
+                                    <a href="{{ path('admin.orders.show', {id: order.id}) }}" class="crud-button crud-show"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </article>
+            </div>
+            <div class="user-activities-machines">
+                <article class="card-show-user">
+                    <div class="card-body-show-user">
+                        <h1 class="card-title-show-user">RESERVATIONS DE MACHINES</h1>
+                        <div class="coral-line"></div>
+
+
+                        <div class="card-subtitle-show-user" style="font-weight: bold;">
+
+                        </div>
+                        <div class="card-content-show-user">
+
+                        </div>
+
+
+                    </div>
+                </article>
+            </div>
+            <div class="user-activities-tools">
+                <article class="card-show-user">
+                    <div class="card-body-show-user">
+                        <h1 class="card-title-show-user">RESERVATIONS D'OUTILS</h1>
+                        <div class="coral-line"></div>
+
+
+                        <div class="card-subtitle-show-user" style="font-weight: bold;">
+
+                        </div>
+                        <div class="card-content-show-user">
+
+                        </div>
+
+
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

@@ -102,6 +102,25 @@
     color: coral;
 }
 
+.status-1-user{
+    color: firebrick;
+    font-weight: bold;
+}
+.status-2-user{
+    color: orangered;
+    font-weight: bold;
+}
+.status-3-user{
+    color: orange;
+    font-weight: bold;
+}
+.status-4-user{
+    color: green;
+    font-weight: bold;
+}
+
+
+
 .crud-action{
     width: 10%;
     display: inline-block;
@@ -150,11 +169,26 @@
         margin: 0 10% 0 10%;
     }
 
+    .crud-status.user{
+        display: none;
+    }
+    .crud-action.user{
+        width: 20%;
+    }
+
 }
 @media screen and (max-width: 680px) {
 
     .crud-card-container{
         margin: 0 5% 0 5%;
+    }
+    .crud-title.user{
+
+        width: 10%;
+    }
+
+    .crud-action.user{
+        width: 30%;
     }
 
 }
