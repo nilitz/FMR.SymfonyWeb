@@ -9,7 +9,7 @@
 {% for machine in machines %}
 <article class="card-fmr">
     <header class="card-img-fmr">
-        <img src="{{ machine.image }}">
+        <img src="{{ vich_uploader_asset(machine, 'imageFile') }}">
     </header>
     <div class="card-body-fmr">
         <div class="card-number-fmr">
