@@ -6,9 +6,15 @@ use App\Repository\MachineRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=MachineRepository::class)
+ * @Vich\Uploadable()
+ * @UniqueEntity("name")
  */
 class Machine
 {
@@ -30,9 +36,17 @@ class Machine
     private $color;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
      */
-    private $image;
+    private $filename;
+
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="machine_image", fileNameProperty="filename")
+     */
+    private $imageFile;
+
 
     /**
      * @ORM\Column(type="boolean")
@@ -54,6 +68,11 @@ class Machine
      * @ORM\OneToMany(targetEntity=RentMachine::class, mappedBy="machine", orphanRemoval=true)
      */
     private $rentMachines;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -89,15 +108,43 @@ class Machine
         return $this;
     }
 
-    public function getImage(): ?string
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
     {
-        return $this->image;
+        return $this->filename;
     }
 
-    public function setImage(?string $image): self
+    /**
+     * @param string|null $filename
+     * @return Machine
+     */
+    public function setFilename(?string $filename): Machine
     {
-        $this->image = $image;
+        $this->filename = $filename;
+        return $this;
+    }
 
+    /**
+     * @return File
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     * @return Machine
+     */
+    public function setImageFile(?File $imageFile): Machine
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceOf UploadedFile)
+        {
+            $this->updated_at = new \DateTime('now');
+        }
         return $this;
     }
 
@@ -171,5 +218,17 @@ class Machine
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
     }
 }

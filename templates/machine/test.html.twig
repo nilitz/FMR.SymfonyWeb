@@ -14,7 +14,7 @@
                 <a href="{{ path('machine.index') }}"><i class="fas fa-chevron-left"></i></a>
             </div>
             <div class="card-img-show">
-                <img src="{{ booking.machine.image }}">
+                <img src="{{ vich_uploader_asset(booking.machine, 'imageFile') }}">
             </div>
             <div class="card-body-show">
                 <div class="card-category-show"><a href="#">{{ booking.title }}</a></div>
