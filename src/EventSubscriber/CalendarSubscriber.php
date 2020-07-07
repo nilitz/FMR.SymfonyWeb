@@ -51,7 +51,7 @@ class CalendarSubscriber implements EventSubscriberInterface
         foreach ($bookings as $booking) {
             $bookingEvent = new Event(
                 $booking->getMachine()->getName(),
-                $booking->getTitle(),
+                //$booking->getTitle(),
                 $booking->getBeginAt(),
                 $booking->getEndAt()
             );
@@ -65,8 +65,8 @@ class CalendarSubscriber implements EventSubscriberInterface
             }
 
             $bookingEvent->setOptions([
-                'backgroundColor' => $pickedColor,
-                'borderColor' => $pickedColor,
+                'backgroundColor' => $pickedColor	,
+                'borderColor' => $pickedColor	,
             ]);
             $bookingEvent->addOption(
                 'url',
