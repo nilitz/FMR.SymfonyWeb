@@ -99,11 +99,19 @@
     .card-title-show-user.info{
         padding-top: 50px;
     }
+    .order.crud-content.show{
+        width: 15%;
+    }
 
+    .order.crud-status.show{
+        width: 30%;
+    }
 }
 @media screen and (max-width: 900px) {
     .card-show-user{
     }
+
+
     .user-infos{
         margin-left: 0;
         width: 100%;
@@ -115,13 +123,6 @@
         display: block;
     }
 
-    .order.crud-content.show{
-        width: 15%;
-    }
-
-    .order.crud-status.show{
-        width: 40%;
-    }
 
     .crud-action.show{
         width: 15%;

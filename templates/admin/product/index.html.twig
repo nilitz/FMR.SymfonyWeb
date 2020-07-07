@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="crud-card-container">
-
+        <hr class="mt-5">
     <h1 class="display-4 text-center mt-5">Gestion des Produits</h1>
     {% for message in app.flashes('success') %}
         <hr class="my-5">
@@ -15,7 +15,7 @@
     </div>
     {% for product in products %}
     <div class="crud-card">
-        <div CLASS="crud-img"><img src="{{ product.image }}"></div>
+        <div CLASS="crud-img"><img src="{{ vich_uploader_asset(product, 'imageFile') }}"></div>
         <div class="crud-title"><a href="{{ path('products.show', {id: product.id}) }}">{{ product.name }}</a></div>
         <div class="crud-content"><p>{{ product.maxUser }} / {{ product.maxProduction }} / {{ product.getPeriod }}</p></div>
         <div class="crud-status"></div>

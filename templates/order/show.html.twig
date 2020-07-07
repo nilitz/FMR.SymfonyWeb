@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="card-container">
+        <article class="card-show">
+            <div class="page-back">
+                <a href="{{ path("users.show", {id: app.user.id}) }}"><i class="fas fa-chevron-left"></i></a>
+            </div>
+            <div class="card-body-show">
+                <div class="card-category-show" style="top: 30px">
+                    {% if order.isAccepted == false %}
+                        En Attente de Validation
+                    {% elseif order.isAccepted == true and order.isComplete == false %}
+                        En Préparation
+                    {% elseif order.isComplete == true and order.isDelivered == false %}
+                        En Attente de Livraison
+                    {% else %}
+                        Livrée
+                    {% endif %}
+                </div>
+                <h1 class="card-title-show">Récapitulatif</h1>
+                <div class="coral-line"></div>
+                <div class="card-subtitle-show" style="font-weight: bold;">Commande n°{{ order.id }}</div>
+                <div class="card-user-info">
+                    <span class="card-user-email">{{ order.user.email }}</span>   <span class="card-user-category">({{ order.user.category.name }})</span>
+                </div>
+                <div class="card-detail text-center">
+                    <div class="card-detail-top">
+                        <div class="card-detail-product">Produit</div>
+                        <div class="card-detail-quantity">Qté.</div>
+                        <div class="card-detail-date">Date</div>
+                    </div>
+                    <div class="card-detail-line"></div>
+                    <div class="card-detail-body">
+                        <div class="card-detail-product"><a href="{{ path('products.show', {id: order.product.id}) }}">{{ order.product.name }}</a></div>
+                        <div class="card-detail-quantity">{{ order.quantity }}</div>
+                        <div class="card-detail-date">{{ order.orderedAtToString }}</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+    </div>
+
+
+
+
+{% endblock %}
