@@ -25,9 +25,9 @@ class Inventory
     private $quantity;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ToolType::class, inversedBy="inventories")
+     * @ORM\ManyToOne(targetEntity=Tool::class, inversedBy="inventories")
      */
-    private $toolType;
+    private $tool;
 
     /**
      * @ORM\ManyToOne(targetEntity=Box::class, inversedBy="inventories")
@@ -61,14 +61,14 @@ class Inventory
         return $this;
     }
 
-    public function getToolType(): ?ToolType
+    public function getTool(): ?Tool
     {
-        return $this->toolType;
+        return $this->tool;
     }
 
-    public function setToolType(?ToolType $toolType): self
+    public function setTool(?Tool $tool): self
     {
-        $this->toolType = $toolType;
+        $this->tool = $tool;
 
         return $this;
     }

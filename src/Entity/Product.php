@@ -7,11 +7,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
- *
+ * @Vich\Uploadable()
  * @UniqueEntity("name")
  */
 class Product
@@ -46,9 +49,16 @@ class Product
     private $max_user;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
      */
-    private $image;
+    private $filename;
+
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="filename")
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="text")
@@ -64,6 +74,11 @@ class Product
      * @ORM\OneToMany(targetEntity=Order::class, mappedBy="product", orphanRemoval=true)
      */
     private $orders;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -111,18 +126,6 @@ class Product
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -139,6 +142,49 @@ class Product
     {
         return $this->production_time;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     * @return Product
+     */
+    public function setFilename(?string $filename): Product
+    {
+        $this->filename = $filename;
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     * @return Product
+     */
+    public function setImageFile(?File $imageFile): Product
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceOf UploadedFile)
+        {
+            $this->updated_at = new \DateTime('now');
+        }
+        return $this;
+    }
+
+
+
 
     public function setProductionTime(int $production_time): self
     {
@@ -195,5 +241,17 @@ class Product
             }
         }
         return 'Invalid Period';
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
     }
 }
