@@ -14,7 +14,7 @@
                 <a href="{{ path('products.index') }}"><i class="fas fa-chevron-left"></i></a>
             </div>
             <div class="card-img-show">
-                <img src="{{ product.image }}">
+                <img src="{{ vich_uploader_asset(product, 'imageFile') }}">
             </div>
             <div class="card-body-show">
                 <div class="card-category-show"><a href="#">{{ product.returnClassName }}</a></div>

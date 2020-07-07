@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ToolType;
+use App\Entity\Tool;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ToolType|null find($id, $lockMode = null, $lockVersion = null)
- * @method ToolType|null findOneBy(array $criteria, array $orderBy = null)
- * @method ToolType[]    findAll()
- * @method ToolType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Tool|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Tool|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Tool[]    findAll()
+ * @method Tool[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ToolTypeRepository extends ServiceEntityRepository
+class ToolRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ToolType::class);
+        parent::__construct($registry, Tool::class);
     }
 
     // /**
-    //  * @return ToolType[] Returns an array of ToolType objects
+    //  * @return Tool[] Returns an array of Tool objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ToolTypeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ToolType
+    public function findOneBySomeField($value): ?Tool
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

@@ -30,9 +30,9 @@ class Box
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=ToolType::class, mappedBy="box")
+     * @ORM\ManyToMany(targetEntity=Tool::class, inversedBy="box")
      */
-    private $toolTypes;
+    private $tools;
 
     /**
      * @ORM\OneToMany(targetEntity=Inventory::class, mappedBy="box")
@@ -41,7 +41,7 @@ class Box
 
     public function __construct()
     {
-        $this->toolTypes = new ArrayCollection();
+        $this->tools = new ArrayCollection();
         $this->inventories = new ArrayCollection();
     }
 
@@ -75,28 +75,28 @@ class Box
     }
 
     /**
-     * @return Collection|ToolType[]
+     * @return Collection|Tool[]
      */
-    public function getToolTypes(): Collection
+    public function getTools(): Collection
     {
-        return $this->toolTypes;
+        return $this->tools;
     }
 
-    public function addToolType(ToolType $toolType): self
+    public function addTool(Tool $tool): self
     {
-        if (!$this->toolTypes->contains($toolType)) {
-            $this->toolTypes[] = $toolType;
-            $toolType->addBox($this);
+        if (!$this->tools->contains($tool)) {
+            $this->tools[] = $tool;
+            $tool->addBox($this);
         }
 
         return $this;
     }
 
-    public function removeToolType(ToolType $toolType): self
+    public function removeTool(Tool $tool): self
     {
-        if ($this->toolTypes->contains($toolType)) {
-            $this->toolTypes->removeElement($toolType);
-            $toolType->removeBox($this);
+        if ($this->tools->contains($tool)) {
+            $this->tools->removeElement($tool);
+            $tool->removeBox($this);
         }
 
         return $this;
@@ -131,5 +131,11 @@ class Box
         }
 
         return $this;
+    }
+
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

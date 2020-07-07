@@ -66,7 +66,7 @@
 
                         {% for order in user.orders %}
                             <div class="crud-card">
-                                <div CLASS="crud-img"><img src="{{ order.product.image }}"></div>
+                                <div CLASS="crud-img"><img src="{{ vich_uploader_asset(order.product, 'imageFile') }}"></div>
                                 <div class="crud-title"><a href="{{ path('products.show', {id: order.product.id}) }}">{{ order.product.name }}</a></div>
                                 <div class="order crud-content show"><p>{{ order.quantity }}</p></div>
                                 <div class="order crud-status show"><a href="{{ path('admin.orders.next', {id: order.id}) }}"

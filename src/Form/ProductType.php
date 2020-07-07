@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,9 +15,10 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('imageFile', FileType::class, [
+            ])
             ->add('max_production')
             ->add('max_user')
-            ->add('image')
             ->add('description')
             ->add('production_time', ChoiceType::class, [
                 'choices' => $this->getPeriods()
