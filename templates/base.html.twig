@@ -21,6 +21,7 @@
             <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/faq-card.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/user.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         {% endblock %}
     </head>
@@ -148,4 +149,10 @@
 
 {% endblock %}
     </body>
+    <footer class="footer-css">
+        <div class="footer-links-css">
+            <a href="{{ path('cgu.show') }}" class="footer-link-css">CGU</a>
+            <a href="{{ path('legal.show') }}" class="footer-link-css">Mentions légales</a>
+        </div>
+    </footer>
 </html>
