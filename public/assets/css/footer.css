@@ -1,0 +1,30 @@
+.footer-css{
+    background-color: #222222;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    color: coral;
+    font-weight: bold;
+}
+
+.footer-links-css{
+    display: flex; /* contexte sur le parent */
+    height: 100%;
+}
+
+.footer-link-css{
+    color: #cccccc;
+    transition: color 0.3s, border-bottom-color 0.3s;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: #222222 1px solid;
+    margin: auto; /* eh oui, tout bêtement */
+
+}
+.footer-link-css:hover{
+    color: #529E99;
+    text-decoration: none;
+    border-bottom: coral 1px solid;
+}

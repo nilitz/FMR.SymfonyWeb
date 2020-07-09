@@ -21,6 +21,7 @@
             <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/faq-card.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/user.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         {% endblock %}
     </head>
@@ -50,6 +51,8 @@
                     <li><p class="title"><span class="sidebar-title">ADMINISTRATION</span><span class="sidebar-icon"><i class="fas fa-user-cog"></i></span></p></li>
                     <div class="title-border-line"></div>
                     <li><a href="{{ path('admin.users.index') }}">Gérer les utilisateurs<span class="sidebar-icon"><i class="fas fa-user-circle"></i></span></a></li>
+                    <li><a href="{{ path('admin.categories.index') }}">Gérer les catégories<span class="sidebar-icon"><i class="fas fa-ticket-alt"></i></span></a></li>
+                    <li><a href="{{ path('admin.skills.index') }}">Gérer les compétences<span class="sidebar-icon"><i class="fas fa-carrot"></i></span></a></li>
                     <div class="border-line"></div>
                     <li><a href="{{ path("admin.faq.index") }}">Gérer la FAQ<span class="sidebar-icon"><i class="fas fa-question-circle"></i></span></a></li>
                     <div class="border-line"></div>
@@ -95,4 +98,10 @@
 
 {% endblock %}
     </body>
+    <footer class="footer-css">
+        <div class="footer-links-css">
+            <a href="{{ path('cgu.show') }}" class="footer-link-css">CGU</a>
+            <a href="{{ path('legal.show') }}" class="footer-link-css">Mentions légales</a>
+        </div>
+    </footer>
 </html>

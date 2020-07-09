@@ -139,26 +139,29 @@ class ProductController extends AbstractController
         foreach ($array as $stat)
         {
             $actualDateTime = new \DateTime();
-            switch ($product->getPeriod())
+            if($stat->getIsComplete() == true)
             {
-                case "Jour":
-                    if($actualDateTime->sub(new \DateInterval('P1D')) > $stat->getOrderedAt())
-                    {
-                        unset($array[$this->indentation]);
-                    }
-                    break;
-                case "Semaine":
-                    if($actualDateTime->sub(new \DateInterval('P7D')) > $stat->getOrderedAt())
-                    {
-                        unset($array[$this->indentation]);
-                    }
-                    break;
-                case "Mois":
-                    if($actualDateTime->sub(new \DateInterval('P1M')) > $stat->getOrderedAt())
-                    {
-                        unset($array[$this->indentation]);
-                    }
-                    break;
+                switch ($product->getPeriod())
+                {
+                    case "Jour":
+                        if($actualDateTime->sub(new \DateInterval('P1D')) > $stat->getOrderedAt())
+                        {
+                            unset($array[$this->indentation]);
+                        }
+                        break;
+                    case "Semaine":
+                        if($actualDateTime->sub(new \DateInterval('P7D')) > $stat->getOrderedAt())
+                        {
+                            unset($array[$this->indentation]);
+                        }
+                        break;
+                    case "Mois":
+                        if($actualDateTime->sub(new \DateInterval('P1M')) > $stat->getOrderedAt())
+                        {
+                            unset($array[$this->indentation]);
+                        }
+                        break;
+                }
             }
             $this->indentation++;
         }

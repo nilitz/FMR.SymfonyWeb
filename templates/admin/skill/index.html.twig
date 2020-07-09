@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <hr class="mt-5">
+    <div class="crud-card-container">
+        <h1 class="display-4 text-center mt-5">Gestion des Compétences</h1>
+        {% for message in app.flashes('success') %}
+            <hr class="my-5">
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <hr class="my-5">
+        <div class="text-right">
+            <a href="{{ path("admin.skills.new") }}" class="btn btn-success" style="vertical-align: center">Ajouter une nouvelle Compétence <i class="fas fa-plus"></i></a>
+        </div>
+        {% for skill in skills %}
+            <div class="crud-card">
+                <div class="crud-title">{{ skill.id }}</div>
+                <div class="crud-content"><p>{{ skill.name }}</p></div>
+                <div class="crud-status"></div>
+                <div class="crud-action">
+                    <a href="{{ path('admin.skills.edit', {id: skill.id}) }}" class="crud-button crud-edit"><i class="fas fa-pen"></i></a>
+                    <form method="post" action="{{ path('admin.skills.delete', {id: skill.id}) }}" style="display: inline-block;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ skill.id) }}">
+                        <button class="crud-button crud-delete"><i class="fas fa-trash"></i></button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
