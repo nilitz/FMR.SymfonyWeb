@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="crud-card-container">
+
+        <h1 class="display-4 text-center mt-5">Gestion des >Réservations</h1>
+        {% for message in app.flashes('success') %}
+            <hr class="my-5">
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <hr class="my-5">
+        <div class="text-right">
+            <a href="{{ path("admin.bookings.new") }}" class="btn btn-success" style="vertical-align: center">Ajouter une nouvelle réservation <i class="fas fa-plus"></i></a>
+        </div>
+        {% for booking in bookings %}
+            <div class="crud-card">
+                <div CLASS="crud-img"><img src="{{ booking.machine.image }}"></div>
+                <div class="crud-title"><a href="{{ path('booking.show', {id: booking.id}) }}">{{ booking.machine.name }}</a></div>
+                <div class="crud-content"><p>{{ booking.startAt|date }} / {{ booking.endAt|date }} / {{ booking.machine.name }}</p></div>
+                <div class="crud-status"></div>
+                <div class="crud-action">
+                    <a href="{{ path('admin.bookings.edit', {id: booking.id}) }}" class="crud-button crud-edit"><i class="fas fa-pen"></i></a>
+                    <form method="post" action="{{ path('admin.bookings.delete', {id: booking.id}) }}" style="display: inline-block;" onsubmit="return confirm('Voulez vous vraiment effectuer l action ?')">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ booking.id) }}">
+                        <button class="crud-button crud-delete"><i class="fas fa-trash"></i></button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

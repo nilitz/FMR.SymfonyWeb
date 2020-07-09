@@ -13,9 +13,9 @@
     </header>
     <div class="card-body-fmr">
         <div class="card-number-fmr">
-            <span class="card-number-1-fmr">{{ machine.id }}</span>
+            <span class="card-number-1-fmr">{{ machine.maxHoursPerUse }}</span>
             <div class="white-line"></div>
-            <span class="card-number-2-fmr">{{ machine|length }}</span>
+            <span class="card-number-2-fmr">H</span>
         </div>
         <div class="card-category-fmr"><a href="#">Machine</a></div>
         <div class="card-title-fmr">{{ machine.name }}</div>
@@ -34,9 +34,10 @@
         <footer class="card-footer-fmr text-center">
             {% endif %}
             {% if machine.isRentable %}
-            <a href="{{ path('booking.new') }}" class="see-css"><i class="fas fa-eye"></i></a>
+                <a href="{{ path('machines.show', {id: machine.id}) }}" class="see-css"><i class="fas fa-eye"></i></a>
             {% else %}
-                    LA MACHINE N'EST PAS DISPONIBLE
+                    INDISPONIBLE
+                <a href="{{ path('machines.show', {id: machine.id}) }}" class="see-css"><i class="fas fa-eye"></i></a>
             {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('admin.machines.edit', {id: machine.id}) }}" class="edit-css"><i class="fas fa-edit"></i></a>
