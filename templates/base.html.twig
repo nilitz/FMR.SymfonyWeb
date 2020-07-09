@@ -64,6 +64,7 @@
                     <div class="border-line"></div>
                     <li><a href="{{ path("admin.products.index") }}">Gérer les produits<span class="sidebar-icon"><i class="fas fa-shopping-cart"></i></span></a></li>
                     <li><a href="{{ path("admin.orders.index") }}">Gérer les commandes<span class="sidebar-icon"><i class="fas fa-luggage-cart"></i></span></a></li>
+                    <li><a href="{{ path("admin.bookings.index") }}">Gérer les réservations<span class="sidebar-icon"><i class="fas fa-book"></i></span></a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -90,64 +91,10 @@
             <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.1.0/main.min.js"></script>
-
-
-            <script type="text/javascript">
-                document.addEventListener('DOMContentLoaded', function() {
-                    var initialLocaleCode = 'fr';
-                    var localeSelectorEl = document.getElementById('locale-selector');
-                    var calendarEl = document.getElementById('calendar-holder');
-
-                    var calendar = new FullCalendar.Calendar(calendarEl, {
-                        plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
-                        eventSources: [
-                            {
-                                url: "/fc-load-events",
-                                method: "POST",
-                                extraParams: {
-                                    filters: JSON.stringify({})
-                                },
-                                failure: () => {
-                                   // alert("Erreur au chargement du calendrier");
-                                },
-                            },
-                        ],
-                        header: {
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'dayGridMonth,timeGridMonth,timeGridDay,listMonth'
-                        },
-                        locale: initialLocaleCode,
-                        selectable: true,
-                        weekNumbers: true,
-                        navLinks: true, // can click day/week names to navigate views
-                        editable: true,
-                        eventLimit: true, // allow "more" link when too many events
-                    });
-
-                    calendar.render();
-
-                    // build the locale selector's options
-                    calendar.getAvailableLocaleCodes().forEach(function(localeCode) {
-                        var optionEl = document.createElement('option');
-                        optionEl.value = localeCode;
-                        optionEl.selected = localeCode == initialLocaleCode;
-                        optionEl.innerText = localeCode;
-                        localeSelectorEl.appendChild(optionEl);
-                    });
-
-                    // when the selected option changes, dynamically change the calendar option
-                    localeSelectorEl.addEventListener('change', function() {
-                        if (this.value) {
-                            calendar.setOption('locale', this.value);
-                        }
-                    });
-
-                });
-            </script>
             <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <script src="{{ asset('assets/js/sidebar.js') }}" type="text/javascript"></script>
             <script src="{{ asset('assets/js/next.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/js/calendar.js') }}" type="text/javascript"></script>
 
 {% endblock %}
     </body>

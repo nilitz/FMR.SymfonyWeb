@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
+use App\Entity\Machine;
 use App\Form\BookingType;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,7 +34,7 @@ class BookingController extends AbstractController
      */
     public function __construct(BookingRepository $bookingRepository, EntityManagerInterface $entityManager)
     {
-
+        date_default_timezone_set('Europe/Paris');
         $this->bookingRepository = $bookingRepository;
         $this->entityManager = $entityManager;
     }
@@ -75,12 +76,17 @@ class BookingController extends AbstractController
     }
 
     /**
-     * @Route("/Rservations/show/{id}", name="ReservationsShow")
+     * @Route("/show/{id}", name="bookingShow")
+     * @param Booking $booking
+     * @param Machine $machine
+     * @return Response
      **/
-    public function show(Booking $booking): Response
+    public function show(Booking $booking, Machine $machine): Response
     {
-        return $this->render('machine/test.html.twig', [
+
+        return $this->render('machine/show.html.twig', [
             'booking' => $booking,
+            'machine' => $machine
         ]);
     }
 }
