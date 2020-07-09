@@ -37,11 +37,10 @@ class CalendarSubscriber implements EventSubscriberInterface
     {
         $start = $calendar->getStart();
         $end = $calendar->getEnd();
-        $filters = $calendar->getFilters();
 
         $bookings = $this->bookingRepository
             ->createQueryBuilder('booking')
-            ->where('booking.beginAt BETWEEN :start and :end OR booking.endAt BETWEEN :start and :end')
+            ->where('booking.start_at BETWEEN :start and :end OR booking.end_at BETWEEN :start and :end')
             ->setParameter('start', $start->format('Y-m-d H:i:s'))
             ->setParameter('end', $end->format('Y-m-d H:i:s'))
             ->getQuery()
@@ -51,26 +50,25 @@ class CalendarSubscriber implements EventSubscriberInterface
         foreach ($bookings as $booking) {
             $bookingEvent = new Event(
                 $booking->getMachine()->getName(),
-                //$booking->getTitle(),
-                $booking->getBeginAt(),
+                $booking->getStartAt(),
                 $booking->getEndAt()
             );
-            if (!is_null($booking->getMachine()->getColor())) {
+            /*if (!is_null($booking->getMachine()->getColor())) {
                 $pickedColor = $booking->getMachine()->getColor();
             }
             else {
                 $pickedColor = $this->colorPicker();
                 $booking->getMachine()->setColor($pickedColor);
                 $this->em->flush();
-            }
+            }*/
 
             $bookingEvent->setOptions([
-                'backgroundColor' => $pickedColor	,
-                'borderColor' => $pickedColor	,
+                'backgroundColor' => 'blue'	,
+                'borderColor' => 'blue'	,
             ]);
             $bookingEvent->addOption(
                 'url',
-                $this->router->generate('ReservationsShow', [
+                $this->router->generate('bookingShow', [
                     'id' => $booking->getId(),
                 ])
             );
@@ -79,12 +77,12 @@ class CalendarSubscriber implements EventSubscriberInterface
         }
     }
 
-    public function colorPicker() {
+    /*public function colorPicker() {
         $r = dechex(rand(100,150));
         $g = dechex(rand(100,150));
         $b = dechex(rand(100,150));
         $pickedColor = "#".$r.$g.$b;
 
         return $pickedColor;
-    }
+    }*/
 }

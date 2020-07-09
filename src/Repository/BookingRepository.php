@@ -19,6 +19,19 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
 
+    /**
+         * @param $machineId
+         * @return array
+         */
+    public function findAllByMachineId($machineId) : array
+        {
+            return $this->createQueryBuilder('p')
+                ->setParameter('machineId', $machineId)
+                ->where('p.machine = :machineId')
+                ->getQuery()
+                ->getResult();
+        }
+
     // /**
     //  * @return Booking[] Returns an array of Booking objects
     //  */

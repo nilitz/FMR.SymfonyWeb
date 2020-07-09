@@ -4,7 +4,9 @@
 namespace App\Controller\Admin;
 
 
-class AdminRentMachineController
+class AdminRentToolController
 {
+
+
 
 }
