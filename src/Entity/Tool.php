@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\ToolTypeRepository;
+
+use App\Repository\ToolRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ToolTypeRepository::class)
+ * @ORM\Entity(repositoryClass=ToolRepository::class)
  */
-class ToolType
+class Tool
 {
     /**
      * @ORM\Id()
@@ -25,12 +26,12 @@ class ToolType
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Box::class, inversedBy="toolTypes")
+     * @ORM\ManyToMany(targetEntity=Box::class, mappedBy="tools")
      */
     private $box;
 
     /**
-     * @ORM\OneToMany(targetEntity=Inventory::class, mappedBy="toolType")
+     * @ORM\OneToMany(targetEntity=Inventory::class, mappedBy="tool")
      */
     private $inventories;
 
@@ -95,7 +96,7 @@ class ToolType
     {
         if (!$this->inventories->contains($inventory)) {
             $this->inventories[] = $inventory;
-            $inventory->setToolType($this);
+            $inventory->setTool($this);
         }
 
         return $this;
@@ -106,8 +107,8 @@ class ToolType
         if ($this->inventories->contains($inventory)) {
             $this->inventories->removeElement($inventory);
             // set the owning side to null (unless already changed)
-            if ($inventory->getToolType() === $this) {
-                $inventory->setToolType(null);
+            if ($inventory->getTool() === $this) {
+                $inventory->setTool(null);
             }
         }
 

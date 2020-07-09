@@ -101,6 +101,7 @@ class AdminMachineController extends AbstractController
         $machineForm = $this->createForm(MachineType::class, $machine);
         $machineForm->handleRequest($request);
 
+
         if ($machineForm->isSubmitted() && $machineForm->isValid())
         {
             $this->entityManager->persist($machine);

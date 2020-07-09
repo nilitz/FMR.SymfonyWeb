@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Machine;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,8 @@ class MachineType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('image')
+            ->add('imageFile', FileType::class, [
+            ])
             ->add('is_rentable')
             ->add('max_hours_per_use')
             ->add('skill')
